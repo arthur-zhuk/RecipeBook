@@ -4,7 +4,7 @@ import Header from './components/header';
 import Signin from './components/auth/signin';
 import Signup from './components/auth/signup';
 import Signout from './components/auth/signout';
-import Home from './components/home';
+import AllRecipes from './components/all_recipes';
 import {
   BrowserRouter as Router,
   Route
@@ -18,7 +18,7 @@ class App extends Component {
         <div>
           <Header />
 
-          <Route exact path='/' component={Home} />
+          <Route exact path='/' component={AllRecipes} />
           <Route path='/signup' component={Signup} />
           <Route path='/signin' component={Signin} />
           <Route path='/signout' component={Signout} />

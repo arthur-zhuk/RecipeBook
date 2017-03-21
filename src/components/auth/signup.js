@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import * as actions from '../../actions';
+import { Redirect } from 'react-router-dom';
 
 class Signup extends Component {
+  renderNewView() {
+    if (this.props.authenticated) {
+      return <Redirect to='/' />
+    }
+  }
   handleFormSubmit(formProps) {
     this.props.signupUser(formProps);
   }
@@ -38,6 +44,7 @@ class Signup extends Component {
           {passwordConfirm.touched && passwordConfirm.error && <div className='error'>{passwordConfirm.error}</div>}
         </fieldset>
         {this.renderAlert()}
+        {this.renderNewView()}
         <button action='submit' className='btn btn-primary'>Sign up</button>
       </form>
     );
@@ -67,7 +74,10 @@ function validate(formProps) {
 }
 
 function mapStateToProps(state) {
-  return { errorMessage: state.auth.error }
+  return { 
+    errorMessage: state.auth.error,
+    authenticated: state.auth.authenticated
+  }
 }
 
 export default reduxForm({

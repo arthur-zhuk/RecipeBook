@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { 
+  ADD_RECIPE,
   AUTH_USER,
   UNAUTH_USER,
   AUTH_ERROR
@@ -46,3 +47,27 @@ export const signoutUser = () => {
   localStorage.removeItem('token');
   return { type: UNAUTH_USER }
 }
+
+export const addRecipe = ({ recipeName, ingredients }) => {
+  return (dispatch) => {
+    axios.post(`${ROOT_URL}/post`, { recipeName, ingredients })
+      .then(response => {
+        dispatch({ 
+          type: ADD_RECIPE
+        });
+      });
+  } 
+}
+
+// Don't even think I need an action to query from DB to pull list of all
+// recipes :\
+//export const getRecipes = () => {
+  //return (dispatch) => {
+    //axios.get(`${ROOT_URL}`)
+      //.then(response => {
+        //dispatch({
+          //type: FETCH_RECIPE
+        //});
+      //});
+  //}
+//}
