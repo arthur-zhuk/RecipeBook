@@ -1,11 +1,9 @@
 import axios from 'axios';
-import React from 'react';
-import { Redirect } from 'react-router-dom';
 import { 
   ADD_RECIPE,
   AUTH_USER,
   UNAUTH_USER,
-  AUTH_ERROR
+  FETCH_RECIPE
 } from './types';
 
 const ROOT_URL = 'http://localhost:3060';
@@ -17,7 +15,7 @@ export const authError = error => {
   }
 }
 
-export function signinUser({ email, password }) {
+export const signinUser = ({ email, password }) => {
   return function(dispatch) {
     axios.post(`${ROOT_URL}/signin`, { email, password })
       .then(response => {
@@ -37,7 +35,6 @@ export const signupUser = ({ email, password }) => {
       .then(response => {
         dispatch({ type: AUTH_USER });
         localStorage.setItem('token', response.data.token);
-        // route here:
       })
       .catch(response => dispatch(authError(response.data.error)));
   }
@@ -59,15 +56,14 @@ export const addRecipe = ({ recipeName, ingredients }) => {
   } 
 }
 
-// Don't even think I need an action to query from DB to pull list of all
-// recipes :\
-//export const getRecipes = () => {
-  //return (dispatch) => {
-    //axios.get(`${ROOT_URL}`)
-      //.then(response => {
-        //dispatch({
-          //type: FETCH_RECIPE
-        //});
-      //});
-  //}
-//}
+export const getRecipes = () => {
+  return (dispatch) => {
+    axios.get(`${ROOT_URL}/allrecipes`)
+      .then(response => {
+        dispatch({
+          type: FETCH_RECIPE,
+          payload: response.data
+        });
+      });
+  }
+}
