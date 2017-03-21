@@ -21,7 +21,6 @@ export const signinUser = ({ email, password }) => {
       .then(response => {
         dispatch({ type: AUTH_USER });
         localStorage.setItem('token', response.data.token);
-        // Figure out how to route back to App???
       })
       .catch(() => {
         dispatch(authError('Bad login info'));
