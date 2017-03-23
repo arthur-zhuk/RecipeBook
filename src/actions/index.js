@@ -46,12 +46,19 @@ export const signoutUser = () => {
 
 export const addRecipe = ({ recipeName, ingredients }) => {
   return (dispatch) => {
-    axios.post(`${ROOT_URL}/post`, { recipeName, ingredients })
-      .then(response => {
-        dispatch({ 
-          type: ADD_RECIPE
-        });
+    axios.post(`${ROOT_URL}/postrecipe`,
+    { 
+      recipeName, ingredients
+    }, 
+    { 
+      headers: {'authorization': localStorage.getItem('token')} 
+    }
+    )
+    .then(response => {
+      dispatch({ 
+        type: ADD_RECIPE
       });
+    });
   } 
 }
 

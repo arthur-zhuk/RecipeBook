@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import RecipeBuilder from './recipe_builder';
 
 class AllRecipes extends Component {
   componentDidMount() {
@@ -10,6 +11,7 @@ class AllRecipes extends Component {
   render() {
     if(!this.props.recipes) return <div>Loading...</div>
     else {
+      //console.log(this.props.recipes);
       const recipeEntry = this.props.recipes.map(recipe => {
         const allIngs = recipe.ingredients.map((ing, i) => {
           return <li key={i}>{ing}</li>
@@ -17,7 +19,7 @@ class AllRecipes extends Component {
 
         return (
           <li key={recipe._id}>
-            {recipe.recipeName}
+            {recipe.recipeName} by {recipe.author}
             <ul>
               {allIngs}
             </ul>
@@ -25,17 +27,39 @@ class AllRecipes extends Component {
         ) 
       });
 
-      return (
-        <ul>
-          {recipeEntry}
-        </ul>
-      );
+      if (this.props.authenticated) {
+        return (
+          <div className='row'>
+            <div className='col-md-6'>
+              <ul>
+                {recipeEntry}
+              </ul>
+            </div>
+            <div className='col-md-6'>
+              <RecipeBuilder />
+            </div>
+          </div>
+        );
+      } else {
+        return (
+          <div className='row'>
+            <div className='col-md-6'>
+              <ul>
+                {recipeEntry}
+              </ul>
+            </div>
+          </div>
+        );
+      }
     }
   }
 }
 
 const mapStateToProps = state => {
-  return { recipes: state.recipe.rList };
+  return { 
+    recipes: state.recipe.rList,
+    authenticated: state.auth.authenticated
+  };
 }
 
 export default connect(mapStateToProps, actions)(AllRecipes);

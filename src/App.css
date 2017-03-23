@@ -1,24 +1,18 @@
-.App {
-  text-align: center;
-}
+/*.container {*/
+  /*width: 100%;*/
+/*}*/
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+/*.form {*/
+  /*width: 50%;*/
+  /*float: right;*/
+/*}*/
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
+/*.recipelist {*/
+  /*width: 50%;*/
+  /*float: left;*/
+/*}*/
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+/*#root {*/
+  /*margin: 0 auto;*/
+  /*width: 80%;*/
+/*}*/

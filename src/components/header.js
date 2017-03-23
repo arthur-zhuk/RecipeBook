@@ -5,9 +5,17 @@ import { Link } from 'react-router-dom';
 class Header extends Component {
   renderLinks() {
     if (this.props.authenticated) {
-      return <li className='nav-item'> 
-        <Link className='nav-link' to='/signout'>Sign Out</Link>
-      </li>
+      return [
+        <li key="add" className='nav-item'> 
+          <Link className='nav-link' to='/recipe_builder'>Add Recipe</Link>
+        </li>,
+        <li key="my" className='nav-item'> 
+          <Link className='nav-link' to='/my_recipes'>My Recipes</Link>
+        </li>,
+        <li key='signout' className='nav-item'> 
+          <Link className='nav-link' to='/signout'>Sign Out</Link>
+        </li>
+      ]
     } else {
       return [
         <li key='in' className='nav-item'>
