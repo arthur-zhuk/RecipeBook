@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import RecipeBuilder from './recipe_builder';
 
 class AllRecipes extends Component {
   componentDidMount() {
@@ -11,7 +10,6 @@ class AllRecipes extends Component {
   render() {
     if(!this.props.recipes) return <div>Loading...</div>
     else {
-      //console.log(this.props.recipes);
       const recipeEntry = this.props.recipes.map(recipe => {
         const allIngs = recipe.ingredients.map((ing, i) => {
           return <li key={i}>{ing}</li>
@@ -27,37 +25,18 @@ class AllRecipes extends Component {
         ) 
       });
 
-      if (this.props.authenticated) {
-        return (
-          <div className='row'>
-            <div className='col-md-6'>
-              <ul>
-                {recipeEntry}
-              </ul>
-            </div>
-            <div className='col-md-6'>
-              <RecipeBuilder />
-            </div>
-          </div>
-        );
-      } else {
-        return (
-          <div className='row'>
-            <div className='col-md-6'>
-              <ul>
-                {recipeEntry}
-              </ul>
-            </div>
-          </div>
-        );
-      }
+      return (
+        <ul>
+          {recipeEntry}
+        </ul>
+      );
     }
   }
 }
 
 const mapStateToProps = state => {
   return { 
-    recipes: state.recipe.rList,
+    recipes: state.recipe.recipes,
     authenticated: state.auth.authenticated
   };
 }

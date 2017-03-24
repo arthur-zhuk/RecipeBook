@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { 
   ADD_RECIPE,
+  FETCH_CURRUSERREC,
   AUTH_USER,
   UNAUTH_USER,
   FETCH_RECIPE
@@ -15,7 +16,7 @@ export const authError = error => {
   }
 }
 
-export const signinUser = ({ email, password }) => {
+export function signinUser({ email, password }) {
   return function(dispatch) {
     axios.post(`${ROOT_URL}/signin`, { email, password })
       .then(response => {
@@ -46,17 +47,15 @@ export const signoutUser = () => {
 
 export const addRecipe = ({ recipeName, ingredients }) => {
   return (dispatch) => {
-    axios.post(`${ROOT_URL}/postrecipe`,
-    { 
+    axios.post(`${ROOT_URL}/postrecipe`, { 
       recipeName, ingredients
-    }, 
-    { 
+    }, { 
       headers: {'authorization': localStorage.getItem('token')} 
-    }
-    )
+    })
     .then(response => {
       dispatch({ 
-        type: ADD_RECIPE
+        type: ADD_RECIPE,
+        payload: response.data
       });
     });
   } 
@@ -68,6 +67,20 @@ export const getRecipes = () => {
       .then(response => {
         dispatch({
           type: FETCH_RECIPE,
+          payload: response.data
+        });
+      });
+  }
+}
+
+export const getCurrentUserRecipes = () => {
+  return (dispatch) => {
+    axios.get(`${ROOT_URL}/my_recipes`, {
+      headers: {'authorization': localStorage.getItem('token')}
+    })
+      .then(response => {
+        dispatch({
+          type: FETCH_CURRUSERREC,
           payload: response.data
         });
       });
