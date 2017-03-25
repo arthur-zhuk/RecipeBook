@@ -31,7 +31,7 @@ class Signup extends Component {
         <fieldset className='form-group'>
           <label>Email:</label>
           <input className='form-control' {...email} />
-          {email.touched && email.error && <div className='error'>{email.error}</div>}
+          {email.touched && email.errors && <div className='error'>{email.error}</div>}
         </fieldset>
         <fieldset className='form-group'>
           <label>Password:</label>
