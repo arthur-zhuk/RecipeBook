@@ -9,7 +9,7 @@ import {
 export default (state = {}, action) => {
   switch(action.type) {
     case ADD_RECIPE:
-      return { ...state.recipes, recipes: [...state.recipes, action.payload] }
+      return { ...state, recipes: [...state.recipes, action.payload] }
     case FETCH_RECIPE:
       return { ...state, recipes: action.payload }
     case FETCH_CURRUSERREC:

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import * as actions from '../actions';
 import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class MyRecipes extends Component {
-  //componentWillMount() {
-    //this.getCurrentUserRecipes();
-  //}
+  componentDidMount() {
+    this.props.getCurrentUserRecipes();
+  }
 
   render() {
     return (
@@ -14,4 +14,11 @@ class MyRecipes extends Component {
   }
 }
 
-export default MyRecipes;
+const mapStateToProps = state => {
+  return { 
+    recipes: state.recipe.uniquerecipes,
+    authenticated: state.auth.authenticated
+  };
+}
+
+export default connect(mapStateToProps, actions)(MyRecipes);
