@@ -7,6 +7,10 @@ class MyRecipes extends Component {
     this.props.getCurrentUserRecipes();
   }
 
+  handleDeleteItem = (id) => {
+    this.props.deleteRecipe(id);
+  }
+
   render() {
     if(!this.props.recipes) return <div>Loading...</div>
     else {
@@ -21,6 +25,7 @@ class MyRecipes extends Component {
             <ul>
               {allIngs}
             </ul>
+            <button onClick={this.handleDeleteItem(recipe._id)} >Delete</button>
           </li>
         ) 
       });

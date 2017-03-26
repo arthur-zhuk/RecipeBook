@@ -2,6 +2,7 @@ import axios from 'axios';
 import { 
   ADD_RECIPE,
   FETCH_CURRUSERREC,
+  REMOVE_RECIPE,
   AUTH_USER,
   UNAUTH_USER,
   FETCH_RECIPE
@@ -82,6 +83,20 @@ export const getCurrentUserRecipes = () => {
         dispatch({
           type: FETCH_CURRUSERREC,
           payload: response.data
+        });
+      });
+  }
+}
+
+export const deleteRecipe = (id) => {
+  return (dispatch) => {
+    axios.delete(`${ROOT_URL}/deleterecipe?id=${id}`, {
+      headers: {'authorization': localStorage.getItem('token')}
+    })
+      .then(response => {
+        dispatch({
+          type: REMOVE_RECIPE,
+          payload: response.data 
         });
       });
   }
