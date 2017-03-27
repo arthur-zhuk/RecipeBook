@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 class MyRecipes extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.getCurrentUserRecipes();
   }
 
-  handleDeleteItem = (id) => {
+  handleDeleteItem = id => {
     this.props.deleteRecipe(id);
   }
 
@@ -25,7 +25,7 @@ class MyRecipes extends Component {
             <ul>
               {allIngs}
             </ul>
-            <button onClick={this.handleDeleteItem(recipe._id)} >Delete</button>
+            <button onClick={() => this.handleDeleteItem(recipe._id)}>Delete</button>
           </li>
         ) 
       });
