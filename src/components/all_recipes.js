@@ -7,6 +7,12 @@ class AllRecipes extends Component {
     this.props.getRecipes();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.recipes !== nextProps.recipes) {
+      nextProps.getRecipes();
+    }
+  }
+
   render() {
     if(!this.props.recipes) return <div>Loading...</div>
     else {

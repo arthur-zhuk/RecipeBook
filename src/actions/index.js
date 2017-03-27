@@ -80,6 +80,8 @@ export const getCurrentUserRecipes = () => {
       headers: {'authorization': localStorage.getItem('token')}
     })
       .then(response => {
+        console.log(`currentUserRec response:`);
+        console.log(response.data);
         dispatch({
           type: FETCH_CURRUSERREC,
           payload: response.data
@@ -94,6 +96,8 @@ export const deleteRecipe = (id) => {
       headers: {'authorization': localStorage.getItem('token')}
     })
       .then(response => {
+        console.log('deleteRecipe response:')
+        console.log(response.data);
         dispatch({
           type: REMOVE_RECIPE,
           payload: response.data 

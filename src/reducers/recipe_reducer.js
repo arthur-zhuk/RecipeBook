@@ -15,9 +15,7 @@ export default (state = {}, action) => {
     case FETCH_CURRUSERREC:
       return { ...state, uniquerecipes: action.payload }
     case REMOVE_RECIPE:
-      console.log(`payload: ${action.payload.id}`);
-      return state.recipes.filter(recipe => recipe._id !== action.payload.id)
-      
+      return state.uniquerecipes.filter(recipe => recipe._id !== action.payload)
     default:
       return state;
   }
