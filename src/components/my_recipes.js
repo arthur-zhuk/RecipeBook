@@ -7,10 +7,16 @@ class MyRecipes extends Component {
     this.props.getCurrentUserRecipes();
   }
 
+  /*
   componentWillReceiveProps(nextProps) {
     if (this.props.recipes !== nextProps.recipes) {
       nextProps.getCurrentUserRecipes();
     }
+  }
+  */
+
+  componentWillUnmount() {
+    return <div>Empty Component</div>
   }
 
   handleDeleteItem = id => {

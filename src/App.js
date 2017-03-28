@@ -8,6 +8,7 @@ import MyRecipes from './components/my_recipes';
 import AllRecipes from './components/all_recipes';
 import RecipeBuilder from './components/recipe_builder';
 import RequireAuth from './components/auth/require_auth';
+import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   Route
@@ -15,6 +16,40 @@ import {
 
 class App extends Component {
  render () {
+   const routes = [
+     {
+       path: '/my_recipes',
+       component: RequireAuth(MyRecipes)
+     },
+     {
+       path: '/',
+       component: AllRecipes
+     },
+     {
+       path: '/signout',
+       component: Signout
+     }
+   ]
+
+   const RouteWithSubRoutes = (route) => (
+     <Route exact path={route.path} render={props => (
+       <route.component {...props} routes={route.routes}/>
+     )}/>
+   )
+
+   const signInMessage = () => {
+     return <div>Sign in to add recipes!</div>
+   }
+
+   const renderBuilder = () => {
+     if (!this.props.authenticated) {
+       return signInMessage
+     } else {
+       return RequireAuth(RecipeBuilder) 
+     }
+   }
+
+
    return (
       <Router>
         <div className='container'>
@@ -23,14 +58,15 @@ class App extends Component {
           </div>
           <div className='row'>
             <div className='col-md-6'>
-              <Route path='/' component={AllRecipes} />
+              {routes.map((route, i) => (
+                <RouteWithSubRoutes key={i} {...route}/>
+              ))}
             </div>
             <div className='col-md-6'>
-              <Route path='/recipe_builder' component={RequireAuth(RecipeBuilder)} />
+              {RequireAuth(<RecipeBuilder />)}
+              <Route path='/' component={renderBuilder()} />
               <Route path='/signup' component={Signup} />
               <Route path='/signin' component={Signin} />
-              <Route path='/signout' component={Signout} />
-              <Route path='/my_recipes' component={MyRecipes} />
             </div>
           </div>
         </div>
@@ -39,4 +75,11 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return { 
+    errorMessage: state.auth.error,
+    authenticated: state.auth.authenticated
+  }
+}
+
+export default connect(mapStateToProps)(App);

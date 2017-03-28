@@ -6,9 +6,6 @@ class Header extends Component {
   renderLinks() {
     if (this.props.authenticated) {
       return [
-        <li key="add" className='nav-item'> 
-          <Link className='nav-link' to='/recipe_builder'>Add Recipe</Link>
-        </li>,
         <li key="my" className='nav-item'> 
           <Link className='nav-link' to='/my_recipes'>My Recipes</Link>
         </li>,
