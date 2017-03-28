@@ -65,7 +65,7 @@ export const addRecipe = ({ recipeName, ingredients }) => {
       dispatch({ 
         type: ADD_RECIPE,
         payload: response.data
-      })
+      });
     });
   } 
 }

@@ -5,6 +5,7 @@ import { reduxForm } from 'redux-form';
 class RecipeBuilder extends Component {
   handleFormSubmit(formProps) {
     this.props.addRecipe(formProps);
+    this.props.resetForm('buildrecipe');
   }
 
   render() {

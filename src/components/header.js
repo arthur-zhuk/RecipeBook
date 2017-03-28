@@ -1,16 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+
+const StyledLink = styled(Link)`
+  color: palevioletred;
+  display: block;
+  margin: 0.5em 0;
+  font-family: Helvetica, Arial, sans-serif;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`
 
 class Header extends Component {
   renderLinks() {
+
     if (this.props.authenticated) {
       return [
         <li key="my" className='nav-item'> 
-          <Link className='nav-link' to='/my_recipes'>My Recipes</Link>
+          <StyledLink className='nav-link' to='/my_recipes'>My Recipes</StyledLink>
         </li>,
         <li key='signout' className='nav-item'> 
-          <Link className='nav-link' to='/signout'>Sign Out</Link>
+          <StyledLink className='nav-link' to='/signout'>Sign Out</StyledLink>
         </li>
       ]
     } else {
@@ -26,13 +40,29 @@ class Header extends Component {
   }
 
   render() {
+
+    const Title = styled.h1`
+      font-size: 1.5em;
+      text-align: center;
+      color: palevioletred;
+    `;
+
+    const Wrapper = styled.section`
+       padding: 4em;
+       background: papayawhip;
+    `;
+    
     return (
-      <nav className='navbar navbar-light'>
-        <Link to='/' className='navbar-brand'>Recipe Book</Link>
-        <ul className='nav navbar-nav'>
-          {this.renderLinks()}
-        </ul>
-      </nav>
+      <Wrapper>
+        <nav className='navbar navbar-light'>
+          <StyledLink to='/' className='navbar-brand'>
+              Recipe Book
+          </StyledLink>
+          <ul className='nav navbar-nav'>
+            {this.renderLinks()}
+          </ul>
+        </nav>
+      </Wrapper>
     );
   }
 }

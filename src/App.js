@@ -50,24 +50,23 @@ class App extends Component {
    }
 
 
+
    return (
       <Router>
-        <div className='container'>
-          <div className='row'>
+        <div className='wrapper'>
+          <div className='header-box'>
             <Header />
           </div>
-          <div className='row'>
-            <div className='col-md-6'>
-              {routes.map((route, i) => (
-                <RouteWithSubRoutes key={i} {...route}/>
-              ))}
-            </div>
-            <div className='col-md-6'>
-              {RequireAuth(<RecipeBuilder />)}
-              <Route path='/' component={renderBuilder()} />
-              <Route path='/signup' component={Signup} />
-              <Route path='/signin' component={Signin} />
-            </div>
+          <div className='left-content'>
+            {routes.map((route, i) => (
+              <RouteWithSubRoutes key={i} {...route}/>
+            ))}
+          </div>
+          <div className='right-content'>
+            {RequireAuth(<RecipeBuilder />)}
+            <Route path='/' component={renderBuilder()} />
+            <Route path='/signup' component={Signup} />
+            <Route path='/signin' component={Signin} />
           </div>
         </div>
       </Router>
