@@ -7,16 +7,11 @@ class AllRecipes extends Component {
     this.props.getRecipes();
   }
 
-    /*
-  componentWillReceiveProps(nextProps) {
-    if (this.props.recipes !== nextProps.recipes) {
-      nextProps.getRecipes();
-    }
-  }
-  */
-
   render() {
     if(!this.props.recipes) return <div>Loading...</div>
+    else if (this.props.recipes.length === 0) {
+      return <div>No recipes available. Add some!</div>
+    }
     else {
       const recipeEntry = this.props.recipes.map(recipe => {
         const allIngs = recipe.ingredients.map((ing, i) => {

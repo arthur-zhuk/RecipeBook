@@ -6,4 +6,5 @@ export const REMOVE_RECIPE = 'remove_recipe';
 export const EDIT_RECIPE = 'edit_recipe';
 export const FETCH_RECIPE = 'fetch_recipe';
 export const FETCH_CURRUSERREC = 'fetch_curruserrec';
+export const SIGNOUT_USER = 'signout_user';
 

@@ -5,6 +5,7 @@ import {
   REMOVE_RECIPE,
   AUTH_USER,
   UNAUTH_USER,
+  SIGNOUT_USER,
   FETCH_RECIPE
 } from './types';
 
@@ -43,7 +44,14 @@ export const signupUser = ({ email, password }) => {
 
 export const signoutUser = () => {
   localStorage.removeItem('token');
-  return { type: UNAUTH_USER }
+  return (dispatch) => {
+    dispatch({
+      type: UNAUTH_USER
+    })
+    dispatch({
+      type: SIGNOUT_USER
+    })
+  }
 }
 
 export const addRecipe = ({ recipeName, ingredients }) => {
@@ -57,7 +65,7 @@ export const addRecipe = ({ recipeName, ingredients }) => {
       dispatch({ 
         type: ADD_RECIPE,
         payload: response.data
-      });
+      })
     });
   } 
 }
@@ -80,8 +88,6 @@ export const getCurrentUserRecipes = () => {
       headers: {'authorization': localStorage.getItem('token')}
     })
       .then(response => {
-        console.log(`currentUserRec response:`);
-        console.log(response.data);
         dispatch({
           type: FETCH_CURRUSERREC,
           payload: response.data
@@ -96,8 +102,6 @@ export const deleteRecipe = (id) => {
       headers: {'authorization': localStorage.getItem('token')}
     })
       .then(response => {
-        console.log('deleteRecipe response:')
-        console.log(response.data);
         dispatch({
           type: REMOVE_RECIPE,
           payload: response.data 
