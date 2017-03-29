@@ -11,7 +11,7 @@ class Signout extends Component {
   }
 
   render() {
-    return <div className='col-sm-6'>You are now logged out of Recipe Book</div>
+    return <p className='snip1211'>You are now logged out of Recipe Book</p>
   }
 }
 

@@ -38,7 +38,7 @@ class App extends Component {
    )
 
    const signInMessage = () => {
-     return <div>Sign in to add recipes!</div>
+     return <p className='snip1211'>Sign in to add recipes!</p>
    }
 
    const renderBuilder = () => {
@@ -51,7 +51,7 @@ class App extends Component {
 
    return (
       <Router>
-        <div className='wrapper'>
+        <div className='container'>
           <div className='header-box'>
             <Header />
           </div>
