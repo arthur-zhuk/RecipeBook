@@ -9,7 +9,7 @@ import {
   FETCH_RECIPE
 } from './types';
 
-const ROOT_URL = 'http://localhost:3060';
+const ROOT_URL = 'https://recipebookbackend.herokuapp.com';
 
 export const authError = error => {
   return {
