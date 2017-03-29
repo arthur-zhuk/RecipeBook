@@ -1,0 +1,223 @@
+.app-area {
+  margin: 10px;
+}
+html {
+  background: #f3f0eb;
+}
+/* menu */
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800);
+.snip1211 {
+  font-family: 'Raleway', Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.snip1211 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.snip1211 li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0.5em 1.5em;
+  padding: 0;
+}
+.snip1211 a {
+  padding: 0.4em 0;
+  color: rgba(153, 153, 153, 0.5);
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+}
+.snip1211 a:before {
+  position: absolute;
+  content: '';
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  opacity: 0;
+  top: 25%;
+  bottom: 25%;
+  left: 0;
+  right: 0;
+  border-top: 3px solid #34495e;
+  border-bottom: 3px solid #34495e;
+}
+.snip1211 a:hover,
+.snip1211 .current a {
+  color: palevioletred;
+}
+.snip1211 a:hover:before,
+.snip1211 .current a:before {
+  opacity: 1;
+  top: 0;
+  bottom: 0;
+}
+/* Demo purposes only */
+body {
+  background-color: #papayawhip;
+  padding: 30px 0;
+  margin: 15px 0;
+}
+/* menu end */
+
+.header-box {
+  padding: 15px;
+}
+
+.left-content {
+  float: left;
+}
+
+.right-content {
+  float: right;
+  background-color: #CBC5BC;
+}
+
+form {
+  max-width:400px;
+  margin:20px 15px;
+  background:#f3f0eb;
+  border-radius:2px;
+  padding:20px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+form > label {
+  display: block;
+  float: left;
+  margin-top: -19px;
+  background: #f3f0eb;
+  height: 14px;
+  padding: 2px 5px 2px 5px;
+  color: #B9B9B9;
+  font-size: 14px;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+form input,
+form input[type='password'],
+form textarea,
+form select {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  background-color: #f3f0eb;
+  display: block;
+  outline: none;
+  border: none;
+  height: 25px;
+  line-height: 25px;
+  font-size: 16px;
+  padding: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+form input[type="password"]:focus,
+form textarea:focus,
+form select:focus {
+  
+}
+
+form input[type="submit"],
+button {
+  background: #2471FF;
+  border: none;
+  padding: 10px 20px 10px 20px;
+  border-bottom: 3px solid #5994FF;
+  border-radius: 3px;
+  color: #D2E2FF;
+}
+form input[type="submit"]:hover,
+button:hover {
+    background: #6B9FFF;
+    color:#fff;
+}
+
+button.delete {
+  background: red;
+  border-bottom: 3px solid #990000;
+}
+
+button.delete:hover {
+  background: #F1948A;
+  color:#fff;
+}
+
+
+form fieldset{
+    display: block;
+    padding: 9px;
+    border:1px solid #DDDDDD;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+form fieldset:last-child{
+    border:none;
+    margin-bottom: 0px;
+    text-align: center;
+}
+form fieldset > label{
+    display: block;
+    float: left;
+    margin-top: -19px;
+    background: #f3f0eb;
+    height: 14px;
+    padding: 2px 5px 2px 5px;
+    color: #B9B9B9;
+    font-size: 14px;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+form fieldset > span {
+    background: #F3F3F3;
+    display: block;
+    padding: 3px;
+    margin: 0 -9px -9px -9px;
+    text-align: center;
+    color: #C0C0C0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ 
+ 
+li:last-child {
+  border: none;
+}
+
+ 
+li {
+  font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+  text-decoration: none;
+  color: #000;
+  display: block;
+  /*width: 400px;*/
+ 
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+ 
+li:hover {
+  background: #CBC5BC;
+}
+
+.sub:hover {
+  background: #F2B7BB;
+}
+

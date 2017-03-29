@@ -16,10 +16,12 @@ class RecipeBuilder extends Component {
         <fieldset className='form-group'>
           <label>Recipe:</label>
           <input className='form-control' {...recipeName} />
+          <span>Enter the name of the recipe</span>
         </fieldset>
         <fieldset className='form-group'>
           <label>Ingredients:</label>
           <input className='form-control' {...ingredients} />
+          <span>Enter ingredients seperated by commas</span>
         </fieldset>
         <button action='submit' className='btn btn-primary'>Add Recipe</button>
       </form>

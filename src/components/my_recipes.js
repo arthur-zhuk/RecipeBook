@@ -5,6 +5,7 @@ import * as actions from '../actions';
 class MyRecipes extends Component {
   componentWillMount() {
     this.props.getCurrentUserRecipes();
+    this.props.getRecipes();
   }
 
   handleDeleteItem = id => {
@@ -19,7 +20,7 @@ class MyRecipes extends Component {
     else {
       const recipeEntry = this.props.recipes.map(recipe => {
         const allIngs = recipe.ingredients.map((ing, i) => {
-          return <li key={i}>{ing}</li>
+          return <li className='sub' key={i}>{ing}</li>
         });
 
         return (
@@ -28,7 +29,7 @@ class MyRecipes extends Component {
             <ul>
               {allIngs}
             </ul>
-            <button onClick={() => this.handleDeleteItem(recipe._id)}>Delete</button>
+            <button className='delete' onClick={() => this.handleDeleteItem(recipe._id)}>Delete</button>
           </li>
         ) 
       });

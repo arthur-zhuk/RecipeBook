@@ -49,24 +49,24 @@ class App extends Component {
      }
    }
 
-
-
    return (
       <Router>
         <div className='wrapper'>
           <div className='header-box'>
             <Header />
           </div>
-          <div className='left-content'>
-            {routes.map((route, i) => (
-              <RouteWithSubRoutes key={i} {...route}/>
-            ))}
-          </div>
-          <div className='right-content'>
-            {RequireAuth(<RecipeBuilder />)}
-            <Route path='/' component={renderBuilder()} />
-            <Route path='/signup' component={Signup} />
-            <Route path='/signin' component={Signin} />
+          <div className='app-area'>
+            <div className='left-content'>
+              {routes.map((route, i) => (
+                <RouteWithSubRoutes key={i} {...route}/>
+              ))}
+            </div>
+            <div className='right-content'>
+              {RequireAuth(<RecipeBuilder />)}
+              <Route path='/' component={renderBuilder()} />
+              <Route path='/signup' component={Signup} />
+              <Route path='/signin' component={Signin} />
+            </div>
           </div>
         </div>
       </Router>

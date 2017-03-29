@@ -15,7 +15,7 @@ class AllRecipes extends Component {
     else {
       const recipeEntry = this.props.recipes.map(recipe => {
         const allIngs = recipe.ingredients.map((ing, i) => {
-          return <li key={i}>{ing}</li>
+          return <li className='sub' key={i}>{ing}</li>
         });
 
         return (

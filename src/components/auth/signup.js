@@ -32,16 +32,19 @@ class Signup extends Component {
           <label>Email:</label>
           <input className='form-control' {...email} />
           {email.touched && email.errors && <div className='error'>{email.error}</div>}
+          <span>Enter a valid email address</span>
         </fieldset>
         <fieldset className='form-group'>
           <label>Password:</label>
           <input className='form-control' type='password' {...password} />
           {password.touched && password.error && <div className='error'>{password.error}</div>}
+          <span>Enter a valid password</span>
         </fieldset>
         <fieldset className='form-group'>
           <label>Confirm Password:</label>
           <input className='form-control' type='password' {...passwordConfirm} />
           {passwordConfirm.touched && passwordConfirm.error && <div className='error'>{passwordConfirm.error}</div>}
+          <span>Confirm your password</span>
         </fieldset>
         {this.renderAlert()}
         {this.renderNewView()}

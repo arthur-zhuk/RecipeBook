@@ -1,68 +1,40 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
-
-const StyledLink = styled(Link)`
-  color: palevioletred;
-  display: block;
-  margin: 0.5em 0;
-  font-family: Helvetica, Arial, sans-serif;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`
 
 class Header extends Component {
   renderLinks() {
-
     if (this.props.authenticated) {
       return [
-        <li key="my" className='nav-item'> 
-          <StyledLink className='nav-link' to='/my_recipes'>My Recipes</StyledLink>
+        <li key="my" className=''> 
+          <Link className='' to='/my_recipes'>My Recipes</Link>
         </li>,
-        <li key='signout' className='nav-item'> 
-          <StyledLink className='nav-link' to='/signout'>Sign Out</StyledLink>
+        <li key='signout' className=''> 
+          <Link className='' to='/signout'>Sign Out</Link>
         </li>
       ]
     } else {
       return [
-        <li key='in' className='nav-item'>
-          <Link className='nav-link' to='/signin'>Sign In</Link>
+        <li key='in' className=''>
+          <Link className='' to='/signin'>Sign In</Link>
         </li>,
-        <li key='up' className='nav-item'>
-          <Link className='nav-link' to='/signup'>Sign Up</Link>
+        <li key='up' className=''>
+          <Link className='' to='/signup'>Sign Up</Link>
         </li>
       ];
     }
   }
 
   render() {
-
-    const Title = styled.h1`
-      font-size: 1.5em;
-      text-align: center;
-      color: palevioletred;
-    `;
-
-    const Wrapper = styled.section`
-       padding: 4em;
-       background: papayawhip;
-    `;
-    
     return (
-      <Wrapper>
-        <nav className='navbar navbar-light'>
-          <StyledLink to='/' className='navbar-brand'>
+        <nav className='snip1211'>
+          <Link to='/' className=''>
               Recipe Book
-          </StyledLink>
-          <ul className='nav navbar-nav'>
+          </Link>
+          <ul className='snip1211'>
             {this.renderLinks()}
           </ul>
         </nav>
-      </Wrapper>
     );
   }
 }

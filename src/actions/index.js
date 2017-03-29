@@ -18,7 +18,7 @@ export const authError = error => {
   }
 }
 
-export function signinUser({ email, password }) {
+export const signinUser = ({ email, password }) => {
   return function(dispatch) {
     axios.post(`${ROOT_URL}/signin`, { email, password })
       .then(response => {
@@ -65,7 +65,7 @@ export const addRecipe = ({ recipeName, ingredients }) => {
       dispatch({ 
         type: ADD_RECIPE,
         payload: response.data
-      });
+      })
     });
   } 
 }
@@ -77,7 +77,11 @@ export const getRecipes = () => {
         dispatch({
           type: FETCH_RECIPE,
           payload: response.data
-        });
+        })
+        dispatch({
+          type: FETCH_CURRUSERREC,
+          payload: response.data
+        })
       });
   }
 }
@@ -91,7 +95,7 @@ export const getCurrentUserRecipes = () => {
         dispatch({
           type: FETCH_CURRUSERREC,
           payload: response.data
-        });
+        })
       });
   }
 }
