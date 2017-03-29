@@ -9,6 +9,7 @@ import AllRecipes from './components/all_recipes';
 import RecipeBuilder from './components/recipe_builder';
 import RequireAuth from './components/auth/require_auth';
 import { connect } from 'react-redux';
+import logo from "../large_garden-veggies.png";
 import {
   BrowserRouter as Router,
   Route
@@ -18,12 +19,12 @@ class App extends Component {
  render () {
    const routes = [
      {
-       path: '/my_recipes',
-       component: RequireAuth(MyRecipes)
-     },
-     {
        path: '/',
        component: AllRecipes
+     },
+     {
+       path: '/my_recipes',
+       component: RequireAuth(MyRecipes)
      },
      {
        path: '/signout',
@@ -53,6 +54,7 @@ class App extends Component {
       <Router>
         <div className='container'>
           <div className='header-box'>
+            <img src={logo} className='vlogo' alt='Logo' />
             <Header />
           </div>
           <div className='app-area'>

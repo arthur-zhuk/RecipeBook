@@ -31,7 +31,7 @@ class Signup extends Component {
         <fieldset className='form-group'>
           <label>Email:</label>
           <input className='form-control' {...email} />
-          {email.touched && email.errors && <div className='error'>{email.error}</div>}
+          {email.touched && email.error && <div className='error'>{email.error}</div>}
           <span>Enter a valid email address</span>
         </fieldset>
         <fieldset className='form-group'>
@@ -55,25 +55,25 @@ class Signup extends Component {
 }
 
 function validate(formProps) {
-  const errors = {};
+  const error = {};
 
   if (!formProps.email) {
-    errors.email = 'Please enter an email';
+    error.email = 'Please enter an email';
   }
 
   if (!formProps.password) {
-    errors.password = 'Please enter an password';
+    error.password = 'Please enter an password';
   }
 
   if (!formProps.passwordConfirm) {
-    errors.passwordConfirm = 'Please enter a password confirmation';
+    error.passwordConfirm = 'Please enter a password confirmation';
   }
 
   if (formProps.password !== formProps.passwordConfirm) {
-    errors.password = 'Passwords must match';
+    error.password = 'Passwords must match';
   }
 
-  return errors;
+  return error;
 }
 
 function mapStateToProps(state) {

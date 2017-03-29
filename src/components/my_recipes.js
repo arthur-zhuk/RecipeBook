@@ -13,6 +13,8 @@ class MyRecipes extends Component {
   }
 
   render() {
+    if (!this.props.authenticated)
+      return <p className='snip1211'>Please log in to view your recipes</p>
     if(!this.props.recipes) return <div>Loading...</div>
     else if (this.props.recipes.length === 0) {
       return <div>No recipes available. Add some!</div>

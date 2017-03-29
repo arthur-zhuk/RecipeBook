@@ -218,6 +218,7 @@ li {
   font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
   border-bottom: 1px solid #ccc;
   padding: 5px;
+  padding-left: 20px;
   text-decoration: none;
   color: #000;
   display: block;
@@ -238,4 +239,13 @@ li:hover {
 
 p {
   padding: 0 10px;
+}
+
+.vlogo {
+  width: 10em;
+  height: 10em;
+}
+
+.header-box {
+  text-align: center
 }

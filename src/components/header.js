@@ -6,6 +6,9 @@ class Header extends Component {
   renderLinks() {
     if (this.props.authenticated) {
       return [
+        <li key="all" className='snip1211'> 
+          <Link to='/'>All Recipes</Link>
+        </li>,
         <li key="my" className='snip1211'> 
           <Link to='/my_recipes'>My Recipes</Link>
         </li>,
@@ -15,6 +18,9 @@ class Header extends Component {
       ]
     } else {
       return [
+        <li key="all" className='snip1211'> 
+          <Link to='/'>All Recipes</Link>
+        </li>,
         <li key='in' className=''>
           <Link to='/signin'>Sign In</Link>
         </li>,
