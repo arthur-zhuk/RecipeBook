@@ -5,7 +5,7 @@
 Store your precious recipes on Recipe Book, see other people's creations, manage
 your recipes.
 
-![alt text](http://imgur.com/a/1gBTY "Recipe Book")
+![alt text](https://image.ibb.co/fdSmBF/Screen_Shot_2017_03_29_at_5_34_33_PM.png "Recipe Book")
 
 Check out the app here: 
 [https://recipebookfs.herokuapp.com/](https://recipebookfs.herokuapp.com/)
