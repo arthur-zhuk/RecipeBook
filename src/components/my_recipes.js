@@ -5,7 +5,7 @@ import * as actions from '../actions';
 class MyRecipes extends Component {
   componentWillMount() {
     this.props.getCurrentUserRecipes();
-    //this.props.getRecipes();
+    this.props.getRecipes();
   }
 
   handleDeleteItem = id => {
