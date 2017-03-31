@@ -15,12 +15,12 @@ class MyRecipes extends Component {
   render() {
     if (!this.props.authenticated)
       return <p className='snip1211'>Please log in to view your recipes</p>
-    if(!this.props.recipes) return <div>Loading...</div>
-    else if (this.props.recipes.length === 0) {
+    if(!this.props.urecipes) return <div>Loading...</div>
+    else if (this.props.urecipes.length === 0) {
       return <div>No recipes available. Add some!</div>
     }
     else {
-      const recipeEntry = this.props.recipes.map(recipe => {
+      const recipeEntry = this.props.urecipes.map(recipe => {
         const allIngs = recipe.ingredients.map((ing, i) => {
           return <li className='sub' key={i}>{ing}</li>
         });
@@ -47,7 +47,7 @@ class MyRecipes extends Component {
 
 const mapStateToProps = state => {
   return { 
-    recipes: state.recipe.uniquerecipes,
+    urecipes: state.recipe.uniquerecipes,
     authenticated: state.auth.authenticated
   };
 }
