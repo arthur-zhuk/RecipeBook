@@ -8,15 +8,19 @@ html {
 
 .app-area {
   margin: 0 auto;
-  max-width: 1250px;
+  /*max-width: 1250px;*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .left-content {
-  /*display: flex;*/
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   border: 1px solid #ccc;
   max-height: 600px;
   overflow-y: auto;
+  flex-grow: 1;
+  margin: 10px;
 }
 
 .left-content::-webkit-scrollbar {
@@ -38,6 +42,10 @@ html {
   margin: 10px;
   padding: 2px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
   /*max-height: 600px;*/
 }
 
@@ -97,12 +105,16 @@ html {
 
 
 form {
-  /*max-width:400px;*/
+  flex-grow: 1;
   max-height: 600px;
   margin:20px 15px;
   background:#f3f0eb;
   border-radius:2px;
   padding:20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
 form > label {
@@ -116,6 +128,7 @@ form > label {
   font-size: 14px;
   overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
+  flex-grow: 1;
 }
 
 form input,
@@ -152,6 +165,7 @@ button {
   border-radius: 3px;
   color: #D2E2FF;
 }
+
 form input[type="submit"]:hover,
 button:hover {
     background: #6B9FFF;
