@@ -20,7 +20,7 @@ class AllRecipes extends Component {
 
         return (
           <li key={recipe._id}>
-            {recipe.recipeName} by {recipe.author}
+            <div className='li-header'>{recipe.recipeName}</div> by {recipe.author}
             <ul>
               {allIngs}
             </ul>
