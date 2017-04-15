@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 class MyRecipes extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.getCurrentUserRecipes();
+  }
+  componentWillMount() {
+    //this.props.getCurrentUserRecipes();
     this.props.getRecipes();
   }
 

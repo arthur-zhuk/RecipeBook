@@ -32,32 +32,44 @@ class App extends Component {
      }
    ]
 
-   const RouteWithSubRoutes = (route) => (
+   const RouteWithSubRoutes = route => (
      <Route exact path={route.path} render={props => (
        <route.component {...props} routes={route.routes}/>
      )}/>
    )
 
    const signInMessage = () => {
-     return <p className='snip1211'>Sign in to add recipes!</p>
+     return (
+       <div>
+         <p className='snip1211'>
+           Sign in to add recipes!
+         </p>
+       </div>
+     )
    }
 
    const renderBuilder = () => {
      if (!this.props.authenticated) {
-       return signInMessage
+       return signInMessage;
      } else {
-       return RequireAuth(RecipeBuilder) 
+       return RequireAuth(RecipeBuilder);
      }
    }
 
    return (
       <Router>
         <div className='container'>
+          <div className='header-div'></div>
           <div className='header-box'>
             <img src={logo} className='vlogo' alt='Logo' />
             <Header />
           </div>
           <div className='app-area'>
+            <div className='summary'>
+              <p>
+                 Welcome to the Recipe Book where you can share all your favorite recipes!
+               </p>
+            </div>
             <div className='left-content'>
               {routes.map((route, i) => (
                 <RouteWithSubRoutes key={i} {...route}/>

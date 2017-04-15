@@ -1,47 +1,87 @@
 html {
-  background: #f3f0eb;
+  /*background: #f3f0eb;*/
+  /*background: #f6f9fc; */
+}
+
+body {
+  margin: 0px;
+  /*background: linear-gradient(150deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%);*/
+    /*background-image: linear-gradient(150deg, rgb(85, 51, 255) 15%, rgb(5, 213, 255) 70%, rgb(166, 255, 203) 94%);*/
+}
+
+.header-div {
+  background: linear-gradient(150deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%);
+    background-image: linear-gradient(150deg, rgb(85, 51, 255) 15%, rgb(5, 213, 255) 70%, rgb(166, 255, 203) 94%);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform: skewY(-12deg);
+  transform-origin: 0; 
+  position: absolute;
+  z-index: -100;
+}
+
+.summary {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  float: left;
+  margin-left: 40px;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("GothamMedium.otf");
+}
+
+.summary p {
+  font-size: 50px;
+  color: #FFF;
+  font-family: "Gotham";
 }
 
 .header-box {
-  padding: 15px;
+  //padding: 15px;
 }
 
 .app-area {
-  margin: 0 auto;
-  /*max-width: 1250px;*/
+  /*margin: 0 auto;*/
+  /*margin-left: auto;*/
+  /*margin-right: auto;*/
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .left-content {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  border: 1px solid #ccc;
-  max-height: 600px;
+  /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
+  box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08); 
+  //border: 1px solid #FFF;
+  //max-height: 600px;
+  padding: 14px;
+  max-width: 500px;
   overflow-y: auto;
   flex-grow: 1;
   margin: 10px;
+  border-radius: 6px;
+  background: #FFF;
 }
 
-.left-content::-webkit-scrollbar {
-  width: 1em;
+.right-content p {
+  font-size: 25px;
 }
 
-.left-content::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 2px #f59383;
-}
-
-.left-content::-webkit-scrollbar-thumb {
-  background-color: #A99F8F;
-  outline: 3px solid #f59383;
-}
 
 .right-content {
-  background-color: #CBC5BC;
-  border-radius: 2px;
+  background-color: #FFF;
+  max-height: 300px;
+  max-width: 500px;
+  border-radius: 6px;
   margin: 10px;
   padding: 2px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
+  box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08); 
   flex-grow: 1;
   display: flex;
   flex-direction: row;
@@ -73,7 +113,8 @@ html {
 }
 .snip1211 a {
   padding: 0.4em 0;
-  color: rgba(153, 153, 153, 0.5);
+  /*color: rgba(153, 153, 153, 0.5);*/
+  color: #FFF;
   position: relative;
   text-decoration: none;
   display: inline-block;
@@ -93,7 +134,7 @@ html {
 }
 .snip1211 a:hover,
 .snip1211 .current a {
-  color: palevioletred;
+  /*color: palevioletred;*/
 }
 .snip1211 a:hover:before,
 .snip1211 .current a:before {
@@ -108,7 +149,7 @@ form {
   flex-grow: 1;
   max-height: 600px;
   margin:20px 15px;
-  background:#f3f0eb;
+  background: #FFF;
   border-radius:2px;
   padding:20px;
   display: flex;
@@ -236,7 +277,7 @@ li {
   padding: 5px;
   padding-left: 10px;
   text-decoration: none;
-  color: #000;
+  color: #6b7c93;
   display: block;
   -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
   -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
@@ -264,6 +305,7 @@ li:hover {
 
 p {
   padding: 0 10px;
+  color: #6b7c93;
 }
 
 .vlogo {
