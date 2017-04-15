@@ -15,10 +15,14 @@ class MyRecipes extends Component {
     this.props.deleteRecipe(id);
   }
 
+  handleEditItem = ({ recipeName, ingredients, steps, id }) => {
+    this.props.editRecipe({recipeName, ingredients, steps, id });
+  }
+
   render() {
     if (!this.props.authenticated)
       return <p className='snip1211'>Please log in to view your recipes</p>
-    if(!this.props.urecipes) return <div>Loading...</div>
+    if(!this.props.urecipes) return <div>Loading Recipes...</div>
     else if (this.props.urecipes.length === 0) {
       return <div>No recipes available. Add some!</div>
     }
@@ -35,6 +39,7 @@ class MyRecipes extends Component {
               {allIngs}
             </ul>
             <button className='delete' onClick={() => this.handleDeleteItem(recipe._id)}>Delete</button>
+            <button className='edit' onClick={() => this.handleEditItem(recipe._id)}>Delete</button>
           </li>
         ) 
       });

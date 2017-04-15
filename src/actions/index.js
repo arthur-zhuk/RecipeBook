@@ -3,13 +3,15 @@ import {
   ADD_RECIPE,
   FETCH_CURRUSERREC,
   REMOVE_RECIPE,
+  EDIT_RECIPE,
   AUTH_USER,
   UNAUTH_USER,
   SIGNOUT_USER,
   FETCH_RECIPE
 } from './types';
 
-const ROOT_URL = 'https://recipebookbackend.herokuapp.com';
+//const ROOT_URL = 'https://recipebookbackend.herokuapp.com';
+const ROOT_URL = 'http://localhost:3060';
 
 export const authError = error => {
   return {
@@ -54,10 +56,10 @@ export const signoutUser = () => {
   }
 }
 
-export const addRecipe = ({ recipeName, ingredients }) => {
+export const addRecipe = ({ recipeName, ingredients, steps }) => {
   return (dispatch) => {
     axios.post(`${ROOT_URL}/postrecipe`, { 
-      recipeName, ingredients
+      recipeName, ingredients, steps
     }, { 
       headers: {'authorization': localStorage.getItem('token')} 
     })
@@ -111,5 +113,19 @@ export const deleteRecipe = (id) => {
           payload: response.data 
         });
       });
+  }
+}
+
+export const editRecipe = ({ recipeName, ingredients, steps, id }) => {
+  return (dispatch) => {
+    axios.put(`${ROOT_URL}/editrecipe?id=${id}`, { 
+      headers: {'authorization': localStorage.getItem(`token`)}
+    })
+      .then(response => {
+        dispatch({
+          type: EDIT_RECIPE,
+          payload: response.data
+        })
+      })
   }
 }

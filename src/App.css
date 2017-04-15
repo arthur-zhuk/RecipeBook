@@ -1,24 +1,147 @@
-html {
-  /*background: #f3f0eb;*/
-  /*background: #f6f9fc; */
-}
-
 body {
   margin: 0px;
-  /*background: linear-gradient(150deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%);*/
-    /*background-image: linear-gradient(150deg, rgb(85, 51, 255) 15%, rgb(5, 213, 255) 70%, rgb(166, 255, 203) 94%);*/
 }
 
 .header-div {
   background: linear-gradient(150deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%);
-    background-image: linear-gradient(150deg, rgb(85, 51, 255) 15%, rgb(5, 213, 255) 70%, rgb(166, 255, 203) 94%);
+  background-image: linear-gradient(150deg, rgb(85, 51, 255) 15%, rgb(5, 213, 255) 70%, rgb(166, 255, 203) 94%);
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
   transform: skewY(-12deg);
   transform-origin: 0; 
   position: absolute;
   z-index: -100;
+}
+
+
+@media(min-width: 80px)
+.header-div :nth-child(1) {
+  width: 33.33333%;
+  left: -16.66666%;
+  background: #53f;
+}
+
+@media (min-width: 670px)
+.header-div :nth-child(1) {
+    top: 0;
+    background: #4750ff;
+}
+
+@media (min-width: 880px)
+.header-div :nth-child(1) {
+    width: 33.33333%;
+    left: -16.66666%;
+    background: #53f;
+}
+
+@media (min-width: 880px)
+.header-div span {
+  height: 190px;
+}
+
+@media (min-width: 670px)
+.header-div span {
+  height: 150px;
+}
+
+@media (min-width: 880px)
+.header-div :nth-child(2) {
+    width: 33.33333%;
+    top: 0;
+    left: 16.66666%;
+    background: #4553ff;
+}
+
+@media (min-width: 670px)
+.header-div :nth-child(2) {
+    width: 16.66667%;
+    top: 300px;
+    bottom: auto;
+    background: #0dcfff;
+}
+
+.header-div :nth-child(2) {
+    width: 14%;
+    right: 0;
+    bottom: 40px;
+    background: #2be7ff;
+}
+
+@media (min-width: 880px)
+.header-div span {
+    height: 190px;
+}
+
+@media (min-width: 670px)
+.header-div span {
+    height: 150px;
+}
+
+@media (min-width: 880px)
+.header-div :nth-child(3) {
+    width: 33.33333%;
+    left: 49.99999%;
+    bottom: auto;
+    background: #4f40ff;
+}
+@media (min-width: 670px)
+.header-div :nth-child(3) {
+    width: 33.33333%;
+    right: auto;
+    background: #11bdff;
+}
+.header-div :nth-child(3) {
+    width: 25%;
+    bottom: 0;
+    right: 0;
+    background: #a1ffc8;
+}
+@media (min-width: 880px)
+.header-div span {
+    height: 190px;
+}
+@media (min-width: 670px)
+.header-div span {
+    height: 150px;
+}
+.header-div span {
+    height: 200px;
+}
+.header-div span {
+    position: absolute;
+}
+
+@media (min-width: 880px)
+.header-div :nth-child(4) {
+    width: 33.33333%;
+    top: 380px;
+    right: -16.66666%;
+    background: #25ddf5;
+}
+@media (min-width: 880px)
+.header-div span {
+    height: 190px;
+}
+@media (min-width: 670px)
+.header-div span {
+    height: 150px;
+}
+
+@media (min-width: 880px)
+.header-div :nth-child(5) {
+    width: 33.33333%;
+    bottom: 0;
+    background: #1fa2ff;
+}
+@media (min-width: 880px)
+.header-div span {
+    height: 190px;
+}
+@media (min-width: 670px)
+.header-div span {
+    height: 150px;
 }
 
 .summary {
@@ -72,21 +195,18 @@ body {
   font-size: 25px;
 }
 
-
 .right-content {
   background-color: #FFF;
-  max-height: 300px;
+  max-height: 800px;
   max-width: 500px;
   border-radius: 6px;
   margin: 10px;
   padding: 2px;
-  /*box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);*/
   box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08); 
   flex-grow: 1;
   display: flex;
   flex-direction: row;
   margin: 10px;
-  /*max-height: 600px;*/
 }
 
 /* menu */
@@ -155,7 +275,8 @@ form {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-content: center;
+  //align-content: center;
+  justify-content: center;
 }
 
 form > label {
@@ -189,6 +310,7 @@ form select {
   font-size: 16px;
   padding: 0;
   font-family: Georgia, "Times New Roman", Times, serif;
+  flex-grow: 1;
 }
 
 form input[type="password"]:focus,
@@ -224,40 +346,45 @@ button.delete:hover {
 }
 
 form fieldset{
-    display: block;
-    padding: 9px;
-    border:1px solid #DDDDDD;
-    margin-bottom: 30px;
-    border-radius: 3px;
+  display: block;
+  padding: 9px;
+  border:1px solid #DDDDDD;
+  margin-bottom: 30px;
+  border-radius: 3px;
 }
 
 form fieldset:last-child{
-    border:none;
-    margin-bottom: 0px;
-    text-align: center;
+  border:none;
+  margin-bottom: 0px;
+  text-align: center;
 }
-form fieldset > label{
-    display: block;
-    float: left;
-    margin-top: -19px;
-    background: #f3f0eb;
-    height: 14px;
-    padding: 2px 5px 2px 5px;
-    color: #B9B9B9;
-    font-size: 14px;
-    overflow: hidden;
-    font-family: Arial, Helvetica, sans-serif;
+
+form fieldset > label {
+  display: block;
+  float: left;
+  margin-top: -19px;
+  background: #f3f0eb;
+  height: 14px;
+  padding: 2px 5px 2px 5px;
+  color: #B9B9B9;
+  font-size: 14px;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 form fieldset > span {
-    background: #F3F3F3;
-    display: block;
-    padding: 3px;
-    margin: 0 -9px -9px -9px;
-    text-align: center;
-    color: #C0C0C0;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11px;
+  background: #F3F3F3;
+  display: block;
+  padding: 3px;
+  margin: 0 -9px -9px -9px;
+  text-align: center;
+  color: #C0C0C0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+}
+
+form textarea {
+  
 }
 
 ul {

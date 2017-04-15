@@ -21,6 +21,10 @@ export default (state = {}, action) => {
         uniquerecipes: state.uniquerecipes.filter(recipe => recipe._id !== action.payload),
         recipes: state.recipes.filter(recipe => recipe._id !== action.payload) 
       }
+    case EDIT_RECIPE:
+      return {
+        ...state, uniquerecipes: [...state.uniquerecipes, action.payload], recipes: [...state.recipes, action.payload]
+      }
     case SIGNOUT_USER:
       return { ...state, uniquerecipes: [] }
     default:

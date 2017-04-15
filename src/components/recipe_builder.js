@@ -9,7 +9,7 @@ class RecipeBuilder extends Component {
   }
 
   render() {
-    const { handleSubmit, fields: { recipeName, ingredients }} = this.props;
+    const { handleSubmit, fields: { recipeName, ingredients, steps }} = this.props;
 
     return (
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
@@ -23,6 +23,11 @@ class RecipeBuilder extends Component {
           <input className='form-control' {...ingredients} />
           <span>Enter ingredients seperated by commas</span>
         </fieldset>
+        <fieldset className='form-group'>
+          <label>Steps:</label>
+          <input className='form-control' {...steps} />
+          <span>Describe how to create your recipe</span>
+        </fieldset>
         <button action='submit' className='btn btn-primary'>Add Recipe</button>
       </form>
     )
@@ -31,5 +36,5 @@ class RecipeBuilder extends Component {
 
 export default reduxForm({
   form: 'buildrecipe',
-  fields: ['recipeName', 'ingredients']
+  fields: ['recipeName', 'ingredients', 'steps']
 }, null, actions)(RecipeBuilder);

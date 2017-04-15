@@ -59,7 +59,13 @@ class App extends Component {
    return (
       <Router>
         <div className='container'>
-          <div className='header-div'></div>
+          <div className='header-div'>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
           <div className='header-box'>
             <img src={logo} className='vlogo' alt='Logo' />
             <Header />
