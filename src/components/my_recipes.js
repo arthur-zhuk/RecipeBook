@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import EditForm from './edit_form';
 
 class MyRecipes extends Component {
   componentDidMount() {
@@ -15,11 +16,20 @@ class MyRecipes extends Component {
     this.props.deleteRecipe(id);
   }
 
+  /*
   handleEditItem = ({ recipeName, ingredients, steps, id }) => {
     this.props.editRecipe({recipeName, ingredients, steps, id });
   }
+  */
+
+  openEditPanel (recipeName, author, ingredients, id) {
+    return (
+      <EditForm name={recipeName} author={author} ings={ingredients} id={id} />
+    )
+  }
 
   render() {
+    
     if (!this.props.authenticated)
       return <p className='snip1211'>Please log in to view your recipes</p>
     if(!this.props.urecipes) return <div>Loading Recipes...</div>
@@ -38,8 +48,12 @@ class MyRecipes extends Component {
             <ul>
               {allIngs}
             </ul>
+            {this.openEditPanel}
             <button className='delete' onClick={() => this.handleDeleteItem(recipe._id)}>Delete</button>
-            <button className='edit' onClick={() => this.handleEditItem(recipe._id)}>Delete</button>
+            <button 
+              className='edit' 
+              onClick={() => this.openEditPanel(recipe._id, recipe.recipeName, recipe.ingredients)}
+            >Edit</button>
           </li>
         ) 
       });
