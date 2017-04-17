@@ -4,6 +4,12 @@ import * as actions from '../actions';
 import EditForm from './edit_form';
 
 class MyRecipes extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+
+    this.openEditPanel = this.openEditPanel.bind(this);
+  }
   componentDidMount() {
     this.props.getCurrentUserRecipes();
   }
@@ -16,23 +22,21 @@ class MyRecipes extends Component {
     this.props.deleteRecipe(id);
   }
 
-  /*
   handleEditItem = ({ recipeName, ingredients, steps, id }) => {
     this.props.editRecipe({recipeName, ingredients, steps, id });
   }
-  */
 
-  openEditPanel (recipeName, author, ingredients, id) {
-    return (
-      <EditForm name={recipeName} author={author} ings={ingredients} id={id} />
-    )
+  openEditPanel () {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
   }
 
   render() {
     
     if (!this.props.authenticated)
       return <p className='snip1211'>Please log in to view your recipes</p>
-    if(!this.props.urecipes) return <div>Loading Recipes...</div>
+    if(!this.props.urecipes) return <p className='snip1211'>Loading Recipes...</p>
     else if (this.props.urecipes.length === 0) {
       return <div>No recipes available. Add some!</div>
     }
@@ -48,12 +52,15 @@ class MyRecipes extends Component {
             <ul>
               {allIngs}
             </ul>
-            {this.openEditPanel}
+            {!this.state.isToggleOn ? <EditForm name={recipe.recipeName} author={recipe.author} ings={recipe.ingredients} id={recipe._id} /> : undefined}
             <button className='delete' onClick={() => this.handleDeleteItem(recipe._id)}>Delete</button>
             <button 
               className='edit' 
-              onClick={() => this.openEditPanel(recipe._id, recipe.recipeName, recipe.ingredients)}
-            >Edit</button>
+              onClick={() => this.openEditPanel()}
+            >
+              {this.state.isToggleOn ? `Edit` : `Close Edit Panel`}
+            </button>
+
           </li>
         ) 
       });

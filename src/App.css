@@ -197,7 +197,7 @@ body {
 
 .right-content {
   background-color: #FFF;
-  max-height: 800px;
+  max-height: 400px;
   max-width: 500px;
   border-radius: 6px;
   margin: 10px;
@@ -267,7 +267,7 @@ body {
 
 form {
   flex-grow: 1;
-  max-height: 600px;
+  max-height: 300px;
   margin:20px 15px;
   background: #FFF;
   border-radius:2px;
