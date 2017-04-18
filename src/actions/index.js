@@ -116,12 +116,17 @@ export const deleteRecipe = (id) => {
   }
 }
 
-export const editRecipe = ({ editName, editIngs, id }) => {
+export const editRecipe = ({ editName, editIngs, id }, recipeId) => {
+  console.log(`id: ${recipeId} in action creator`)
+  console.log(`action creator vals ${editName}`)
   return (dispatch) => {
-    axios.put(`${ROOT_URL}/editrecipe?id=${id}`, { 
+    axios.put(`${ROOT_URL}/editrecipe?id=${recipeId}`, {
+      editName, editIngs
+    }, { 
       headers: {'authorization': localStorage.getItem(`token`)}
     })
       .then(response => {
+        console.log(response.data);
         dispatch({
           type: EDIT_RECIPE,
           payload: response.data

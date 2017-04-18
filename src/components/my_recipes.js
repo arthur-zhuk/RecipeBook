@@ -6,7 +6,7 @@ import EditForm from './edit_form';
 class MyRecipes extends Component {
   constructor(props) {
     super(props);
-    this.state = {isToggleOn: true};
+    this.state = {isToggleOn: false};
 
     this.openEditPanel = this.openEditPanel.bind(this);
   }
@@ -26,14 +26,14 @@ class MyRecipes extends Component {
     this.props.editRecipe({recipeName, ingredients, steps, id });
   }
 
-  openEditPanel () {
+  openEditPanel (recipeId) {
     this.setState(prevState => ({
-      isToggleOn: !prevState.isToggleOn
+      isToggleOn: !prevState.isToggleOn,
+      idClicked: recipeId
     }));
   }
 
   render() {
-    
     if (!this.props.authenticated)
       return <p className='snip1211'>Please log in to view your recipes</p>
     if(!this.props.urecipes) return <p className='snip1211'>Loading Recipes...</p>
@@ -41,7 +41,7 @@ class MyRecipes extends Component {
       return <div>No recipes available. Add some!</div>
     }
     else {
-      const recipeEntry = this.props.urecipes.map(recipe => {
+      const recipeEntry = this.props.urecipes.map((recipe, parentInd) => {
         const allIngs = recipe.ingredients.map((ing, i) => {
           return <li className='sub' key={i}>{ing}</li>
         });
@@ -52,15 +52,14 @@ class MyRecipes extends Component {
             <ul>
               {allIngs}
             </ul>
-            {!this.state.isToggleOn ? <EditForm name={recipe.recipeName} author={recipe.author} ings={recipe.ingredients} id={recipe._id} /> : undefined}
+            {(recipe._id === this.state.idClicked) && this.state.isToggleOn ? <EditForm name={recipe.recipeName} author={recipe.author} ings={recipe.ingredients} id={recipe._id} /> : undefined}
             <button className='delete' onClick={() => this.handleDeleteItem(recipe._id)}>Delete</button>
             <button 
               className='edit' 
-              onClick={() => this.openEditPanel()}
+              onClick={() => this.openEditPanel(recipe._id)}
             >
-              {this.state.isToggleOn ? `Edit` : `Close Edit Panel`}
+              {(recipe._id === this.state.idClicked) && this.state.isToggleOn ? `Close Edit Panel` : `Edit`}
             </button>
-
           </li>
         ) 
       });

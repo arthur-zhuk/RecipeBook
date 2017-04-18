@@ -10,17 +10,18 @@ class EditForm extends Component {
   }
 
   handleFormSubmit(formProps) {
-    this.props.editRecipe(formProps);
+    this.props.editRecipe(formProps, this.props.id);
+    console.log(`sending form with id:${this.props.id}`)
+    // TODO: clear form here
   }
 
   render() {
     const { handleSubmit, fields: { editName, editIngs, id }} = this.props;
-    console.log(this.props.id);
 
     return (
       <form onSubmit={handleSubmit(this.handleFormSubmit)}>
         <fieldset className='form-group'>
-          <label>Recipe:</label>
+          <label>Recipe: {this.props.id}</label>
           <input className='form-control' {...editName} />
           <span>Enter the name of the recipe</span>
         </fieldset>
@@ -44,6 +45,6 @@ class EditForm extends Component {
 
 export default reduxForm({
   form: 'buildrecipe',
-  fields: ['recipeName', 'ingredients']
+  fields: ['editName', 'editIngs']
 }, null, actions)(EditForm);
 

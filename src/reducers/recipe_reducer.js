@@ -22,8 +22,11 @@ export default (state = {}, action) => {
         recipes: state.recipes.filter(recipe => recipe._id !== action.payload) 
       }
     case EDIT_RECIPE:
+      console.log('action payload in reducer')
+      console.log(action.payload);
       return {
-        ...state, uniquerecipes: [...state.uniquerecipes, action.payload], recipes: [...state.recipes, action.payload]
+        ...state, uniquerecipes: [...state.uniquerecipes, action.payload],
+        recipes: [...state.recipes, action.payload]
       }
     case SIGNOUT_USER:
       return { ...state, uniquerecipes: [] }
