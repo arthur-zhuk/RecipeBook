@@ -7,16 +7,27 @@ class MyRecipes extends Component {
   constructor(props) {
     super(props);
     this.state = {isToggleOn: false};
-
+    this.props.getCurrentUserRecipes();
     this.openEditPanel = this.openEditPanel.bind(this);
   }
-  componentDidMount() {
-    this.props.getCurrentUserRecipes();
-  }
   componentWillMount() {
-    //this.props.getCurrentUserRecipes();
     this.props.getRecipes();
   }
+  /*
+  componentWillMount() {
+    //this.props.getCurrentUserRecipes();
+  }
+  */
+
+  /*
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps.urecipes);
+    console.log(this.props.urecipes);
+    if (this.props.urecipes !== nextProps.urecipes) {
+      this.props.getCurrentUserRecipes();
+    }
+  }
+  */
 
   handleDeleteItem = id => {
     this.props.deleteRecipe(id);
@@ -47,7 +58,7 @@ class MyRecipes extends Component {
         });
 
         return (
-          <li key={recipe._id}>
+          <li key={parentInd}>
             <div className='li-header'>{recipe.recipeName}</div> by {recipe.author}
             <ul>
               {allIngs}

@@ -10,8 +10,8 @@ import {
   FETCH_RECIPE
 } from './types';
 
-const ROOT_URL = 'https://recipebookbackend.herokuapp.com';
-//const ROOT_URL = 'http://localhost:3060';
+//const ROOT_URL = 'https://recipebookbackend.herokuapp.com';
+const ROOT_URL = 'http://localhost:3060';
 
 export const authError = error => {
   return {
@@ -111,8 +111,8 @@ export const deleteRecipe = (id) => {
         dispatch({
           type: REMOVE_RECIPE,
           payload: response.data 
-        });
-      });
+        })
+      })
   }
 }
 
@@ -126,6 +126,7 @@ export const editRecipe = ({ editName, editIngs, id }, recipeId) => {
       headers: {'authorization': localStorage.getItem(`token`)}
     })
       .then(response => {
+        console.log(`action creator response data vvv`)
         console.log(response.data);
         dispatch({
           type: EDIT_RECIPE,
