@@ -8,24 +8,13 @@ class MyRecipes extends Component {
     super(props);
     this.state = {isToggleOn: false};
     this.props.getCurrentUserRecipes();
+    this.props.getRecipes();
     this.openEditPanel = this.openEditPanel.bind(this);
   }
-  componentWillMount() {
-    this.props.getRecipes();
-  }
-  /*
-  componentWillMount() {
-    //this.props.getCurrentUserRecipes();
-  }
-  */
 
   /*
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps.urecipes);
-    console.log(this.props.urecipes);
-    if (this.props.urecipes !== nextProps.urecipes) {
-      this.props.getCurrentUserRecipes();
-    }
+  componentWillMount() {
+    this.props.getRecipes();
   }
   */
 

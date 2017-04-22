@@ -22,7 +22,17 @@ export default (state = {}, action) => {
         recipes: state.recipes.filter(recipe => recipe._id !== action.payload) 
       }
     case EDIT_RECIPE:
-      return { ...state, recipes: [...state.recipes, action.payload], uniquerecipes: [...state.uniquerecipes, action.payload] }
+      return { 
+        ...state, 
+        uniquerecipes: state.uniquerecipes.filter(ele => ele._id !== action.payload._id).concat([{
+          _id: action.payload._id, 
+          author: action.payload.author, 
+          __v: action.payload.__v, 
+          date: action.payload.date, 
+          recipeName: action.payload.recipeName, 
+          ingredients: action.payload.ingredients
+        }])
+      }
     case SIGNOUT_USER:
       return { ...state, uniquerecipes: [] }
     default:
