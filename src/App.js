@@ -9,7 +9,6 @@ import AllRecipes from './components/all_recipes';
 import RecipeBuilder from './components/recipe_builder';
 import RequireAuth from './components/auth/require_auth';
 import { connect } from 'react-redux';
-import logo from "../large_garden-veggies.png";
 import {
   BrowserRouter as Router,
   Route
@@ -67,7 +66,6 @@ class App extends Component {
             <span></span>
           </div>
           <div className='header-box'>
-            <img src={logo} className='vlogo' alt='Logo' />
             <Header />
           </div>
           <div className='app-area'>
@@ -90,12 +88,12 @@ class App extends Component {
           </div>
         </div>
       </Router>
-    ); 
+    );
   }
 }
 
 function mapStateToProps(state) {
-  return { 
+  return {
     errorMessage: state.auth.error,
     authenticated: state.auth.authenticated
   }

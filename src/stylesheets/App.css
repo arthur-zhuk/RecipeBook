@@ -1,23 +1,46 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800);
 body {
-  margin: 0px; }
+  margin: 0px;
+  display: flex;
+  flex-direction: column; }
 
 p {
   padding: 0 10px;
   color: #6b7c93; }
 
 /* header portion */
+.header-box {
+  z-index: 1;
+  position: relative; }
+
+.header-box .vlogo {
+  width: 5em;
+  height: 5em; }
+
 .header-div {
   background: linear-gradient(150deg, #53f 15%, #05d5ff 70%, #a6ffcb 94%);
   background-image: linear-gradient(150deg, #5533ff 15%, #05d5ff 70%, #a6ffcb 94%);
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
   transform: skewY(-12deg);
   transform-origin: 0;
-  position: absolute;
-  z-index: -100; }
+  position: absolute; }
+
+.header-div:nth-child(3) {
+  width: 25%;
+  bottom: 0;
+  right: 0;
+  background: #a1ffc8; }
+
+.header-div:nth-child(2) {
+  width: 14%;
+  right: 0;
+  bottom: 40px;
+  background: #2be7ff; }
+
+.header-div span {
+  position: absolute; }
 
 @media (min-width: 80px) {
   .header-div :nth-child(1) {
@@ -58,12 +81,6 @@ p {
     bottom: auto;
     background: #0dcfff; } }
 
-.header-div :nth-child(2) {
-  width: 14%;
-  right: 0;
-  bottom: 40px;
-  background: #2be7ff; }
-
 @media (min-width: 880px) {
   .header-div span {
     height: 190px; } }
@@ -84,12 +101,6 @@ p {
     width: 33.33333%;
     right: auto;
     background: #11bdff; } }
-
-.header-div :nth-child(3) {
-  width: 25%;
-  bottom: 0;
-  right: 0;
-  background: #a1ffc8; }
 
 @media (min-width: 880px) {
   .header-div span {
@@ -143,7 +154,8 @@ p {
 .summary p {
   font-size: 50px;
   color: #FFF;
-  font-family: "Gotham"; }
+  font-family: "Gotham";
+  z-index: 1; }
 
 @font-face {
   font-family: "Gotham";
@@ -163,7 +175,14 @@ p {
   flex-grow: 1;
   margin: 10px;
   border-radius: 6px;
-  background: #FFF; }
+  background: #FFF;
+  z-index: 1; }
+
+.left-content .steps-container p {
+  margin-top: 0; }
+
+.left-content .steps-container h6 {
+  margin-bottom: 0; }
 
 .right-content {
   background-color: #FFF;
@@ -176,7 +195,8 @@ p {
   flex-grow: 1;
   display: flex;
   flex-direction: row;
-  margin: 10px; }
+  margin: 10px;
+  z-index: 1; }
 
 .right-content p {
   font-size: 25px; }
@@ -184,7 +204,6 @@ p {
 /* menu */
 .snip1211 {
   font-family: 'Raleway', Arial, sans-serif;
-  text-align: center;
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 1px; }
@@ -222,10 +241,6 @@ p {
   border-top: 3px solid #34495e;
   border-bottom: 3px solid #34495e; }
 
-.snip1211 a:hover,
-.snip1211 .snip1211 .current a {
-  color: palevioletred; }
-
 .snip1211 a:hover:before,
 .snip1211 .current a:before {
   opacity: 1;
@@ -233,9 +248,11 @@ p {
   bottom: 0; }
 
 /* menu end */
+/* fancy form */
 form {
   flex-grow: 1;
-  max-height: 300px;
+  max-height: 800px;
+  max-width: inherit;
   margin: 20px 15px;
   background: #FFF;
   border-radius: 2px;
@@ -289,7 +306,7 @@ form fieldset:last-child {
   margin-bottom: 0px;
   text-align: center; }
 
-form fieldset:last-child label {
+form fieldset label {
   display: block;
   float: left;
   margin-top: -19px;
@@ -301,7 +318,7 @@ form fieldset:last-child label {
   overflow: hidden;
   font-family: Arial, Helvetica, sans-serif; }
 
-form fieldset:last-child span {
+form fieldset span {
   background: #F3F3F3;
   display: block;
   padding: 3px;
@@ -330,8 +347,7 @@ button.delete:hover {
   background: #F1948A;
   color: #fff; }
 
-form input[type="submit"]:hover, form input[type="submit"]:hover,
-button:hover,
+form input[type="submit"]:hover,
 button:hover {
   background: #6B9FFF;
   color: #fff; }
@@ -358,20 +374,9 @@ li {
 li:last-child {
   border: none; }
 
-li:hover {
-  background: #CBC5BC; }
-
 .sub {
   font-size: 15px;
-  text-transform: lowercase;
-  background: #F2B7BB; }
+  text-transform: lowercase; }
 
 .li-header {
   text-transform: capitalize; }
-
-.vlogo {
-  width: 10em;
-  height: 10em; }
-
-.header-box {
-  text-align: center; }

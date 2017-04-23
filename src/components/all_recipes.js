@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import Steps from './steps';
 
 class AllRecipes extends Component {
   componentDidMount() {
@@ -24,8 +25,9 @@ class AllRecipes extends Component {
             <ul>
               {allIngs}
             </ul>
+            <Steps recipe={recipe} />
           </li>
-        ) 
+        )
       });
 
       return (
@@ -38,7 +40,7 @@ class AllRecipes extends Component {
 }
 
 const mapStateToProps = state => {
-  return { 
+  return {
     recipes: state.recipe.recipes,
     authenticated: state.auth.authenticated
   };

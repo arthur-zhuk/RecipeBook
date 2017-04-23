@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import EditForm from './edit_form';
+import Steps from './steps';
 
 class MyRecipes extends Component {
   constructor(props) {
@@ -52,18 +53,17 @@ class MyRecipes extends Component {
             <ul>
               {allIngs}
             </ul>
-            <h4>Steps:</h4>
-            <p>{recipe.steps}</p>
+            <Steps recipe={recipe} />
             {(recipe._id === this.state.idClicked) && this.state.isToggleOn ? <EditForm name={recipe.recipeName} author={recipe.author} ings={recipe.ingredients} id={recipe._id} /> : undefined}
             <button className='delete' onClick={() => this.handleDeleteItem(recipe._id)}>Delete</button>
-            <button 
-              className='edit' 
+            <button
+              className='edit'
               onClick={() => this.openEditPanel(recipe._id)}
             >
               {(recipe._id === this.state.idClicked) && this.state.isToggleOn ? `Close Edit Panel` : `Edit`}
             </button>
           </li>
-        ) 
+        )
       });
 
       return (
@@ -76,7 +76,7 @@ class MyRecipes extends Component {
 }
 
 const mapStateToProps = state => {
-  return { 
+  return {
     urecipes: state.recipe.uniquerecipes,
     authenticated: state.auth.authenticated
   };

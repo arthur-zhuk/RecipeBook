@@ -26,10 +26,10 @@ class RecipeBuilder extends Component {
         {/* Under Construction*/}
         <fieldset className='form-group'>
           <label>Steps:</label>
-          <textarea className='form-control' {...steps} />
+          <input className='steps form-control' {...steps} />
           <span>Describe how to create your recipe</span>
         </fieldset>
-        
+
         <button action='submit' className='btn btn-primary'>Add Recipe</button>
       </form>
     )

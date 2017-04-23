@@ -34,11 +34,11 @@ class EditForm extends Component {
         <button action='submit' className='btn btn-primary'>Edit Recipe</button>
         {/*
       <form onSubmit={this.handleSubmit}>
-        <input type='text' value={this.props.name} onChange={handleNameChange} /> 
-        <input type='text' value={this.props.ings} onChange={handleIngChange}/> 
+        <input type='text' value={this.props.name} onChange={handleNameChange} />
+        <input type='text' value={this.props.ings} onChange={handleIngChange}/>
         Edit Form {this.props.name}
       </form>
-      */}
+        */}
       </form>
     )
   }
@@ -48,4 +48,3 @@ export default reduxForm({
   form: 'editrecipe',
   fields: ['editName', 'editIngs']
 }, null, actions)(EditForm);
-

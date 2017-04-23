@@ -1,164 +1,177 @@
 @import 'partials/buttons'
 @import 'partials/variables'
 
-body 
+body
   margin: 0px
-p 
+  display: flex
+  flex-direction: column
+p
   padding: 0 10px
   color: #6b7c93
 
 /* header portion */
-.header-div 
+.header-box
+  //text-align: center
+  z-index: 1
+  position: relative
+
+  .vlogo
+    width: 5em
+    height: 5em
+
+.header-div
   background: linear-gradient(150deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%)
   background-image: linear-gradient(150deg, rgb(85, 51, 255) 15%, rgb(5, 213, 255) 70%, rgb(166, 255, 203) 94%)
   width: 100%
   height: 100%
-  overflow-x: hidden
-  overflow-y: hidden
+  overflow: hidden
   transform: skewY(-12deg)
-  transform-origin: 0 
+  transform-origin: 0
   position: absolute
-  z-index: -100
 
-@media(min-width: 80px) 
-  .header-div :nth-child(1) 
+  &:nth-child(3)
+    width: 25%
+    bottom: 0
+    right: 0
+    background: #a1ffc8
+  &:nth-child(2)
+    width: 14%
+    right: 0
+    bottom: 40px
+    background: #2be7ff
+
+  span
+    position: absolute
+
+@media(min-width: 80px)
+  .header-div :nth-child(1)
     width: 33.33333%
     left: -16.66666%
     background: #53f
 
-@media (min-width: 670px) 
-  .header-div :nth-child(1) 
+@media (min-width: 670px)
+  .header-div :nth-child(1)
     top: 0
     background: #4750ff
 
-@media (min-width: 880px) 
-  .header-div :nth-child(1) 
+@media (min-width: 880px)
+  .header-div :nth-child(1)
     width: 33.33333%
     left: -16.66666%
     background: #53f
 
 @media (min-width: 880px)
-  .header-div span 
+  .header-div span
     height: 190px
 
 @media (min-width: 670px)
-  .header-div span 
+  .header-div span
     height: 150px
 
 @media (min-width: 880px)
-  .header-div :nth-child(2) 
+  .header-div :nth-child(2)
     width: 33.33333%
     top: 0
     left: 16.66666%
     background: #4553ff
 
 @media (min-width: 670px)
-  .header-div :nth-child(2) 
+  .header-div :nth-child(2)
     width: 16.66667%
     top: 300px
     bottom: auto
     background: #0dcfff
 
-.header-div :nth-child(2) 
-  width: 14%
-  right: 0
-  bottom: 40px
-  background: #2be7ff
 
 @media (min-width: 880px)
-  .header-div span 
+  .header-div span
     height: 190px
 
 @media (min-width: 670px)
-  .header-div span 
+  .header-div span
     height: 150px
 
 @media (min-width: 880px)
-  .header-div :nth-child(3) 
+  .header-div :nth-child(3)
     width: 33.33333%
     left: 49.99999%
     bottom: auto
     background: #4f40ff
 
 @media (min-width: 670px)
-  .header-div :nth-child(3) 
+  .header-div :nth-child(3)
     width: 33.33333%
     right: auto
     background: #11bdff
 
-.header-div :nth-child(3) 
-  width: 25%
-  bottom: 0
-  right: 0
-  background: #a1ffc8
 
 @media (min-width: 880px)
-  .header-div span 
+  .header-div span
     height: 190px
 
 @media (min-width: 670px)
-  .header-div span 
+  .header-div span
     height: 150px
 
-.header-div span 
+.header-div span
   height: 200px
   position: absolute
 
 @media (min-width: 880px)
-  .header-div :nth-child(4) 
+  .header-div :nth-child(4)
     width: 33.33333%
     top: 380px
     right: -16.66666%
     background: #25ddf5
 
 @media (min-width: 880px)
-  .header-div span 
+  .header-div span
     height: 190px
 
 @media (min-width: 670px)
-  .header-div span 
+  .header-div span
     height: 150px
 
 @media (min-width: 880px)
-  .header-div :nth-child(5) 
+  .header-div :nth-child(5)
     width: 33.33333%
     bottom: 0
     background: #1fa2ff
 
 @media (min-width: 880px)
-  .header-div span 
+  .header-div span
     height: 190px
 
 @media (min-width: 670px)
-  .header-div span 
+  .header-div span
     height: 150px
 /* end of header portion */
 
-.summary 
+.summary
   display: flex
   justify-content: center
   width: 100%
   float: left
   margin-left: 40px
 
-  p 
+  p
     font-size: 50px
     color: #FFF
     font-family: "Gotham"
+    z-index: 1
 
-
-@font-face 
+@font-face
   font-family: "Gotham"
   src: url("../GothamMedium.otf")
 
-.app-area 
+.app-area
   display: flex
   flex-direction: row
   flex-wrap: wrap
   justify-content: center
 
-.left-content 
-  box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08) 
+.left-content
+  box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08)
   padding: 14px
   max-width: 500px
   overflow-y: auto
@@ -166,48 +179,56 @@ p
   margin: 10px
   border-radius: 6px
   background: #FFF
+  z-index: 1
+  .steps-container
+    p
+      margin-top: 0
+    h6
+      margin-bottom: 0
 
-.right-content 
+.right-content
   background-color: #FFF
   max-height: 400px
   max-width: 500px
   border-radius: 6px
   margin: 10px
   padding: 2px
-  box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08) 
+  box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08)
   flex-grow: 1
   display: flex
   flex-direction: row
   margin: 10px
-  p 
+  z-index: 1
+  p
     font-size: 25px
+
 
 /* menu */
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800)
-.snip1211 
+.snip1211
   font-family: 'Raleway', Arial, sans-serif
-  text-align: center
+  // text-align: center
   text-transform: uppercase
   font-weight: 500
   letter-spacing: 1px
-  * 
+  *
     -webkit-box-sizing: border-box
     box-sizing: border-box
     -webkit-transition: all 0.35s ease
     transition: all 0.35s ease
-  li 
+  li
     display: inline-block
     list-style: outside none none
     margin: 0.5em 1.5em
     padding: 0
     border: none
-  a 
+  a
     padding: 0.4em 0
     color: #FFF
     position: relative
     text-decoration: none
     display: inline-block
-  a:before 
+  a:before
     position: absolute
     content: ''
     -webkit-transition: all 0.35s ease
@@ -219,19 +240,19 @@ p
     right: 0
     border-top: 3px solid #34495e
     border-bottom: 3px solid #34495e
-  a:hover,
-  .snip1211 .current a 
-    color: palevioletred
   a:hover:before,
-  .current a:before 
+  .current a:before,
     opacity: 1
     top: 0
     bottom: 0
+
 /* menu end */
 
-form 
+/* fancy form */
+form
   flex-grow: 1
-  max-height: 300px
+  max-height: 800px
+  max-width: inherit
   margin: 20px 15px
   background: #FFF
   border-radius: 2px
@@ -241,7 +262,7 @@ form
   flex-wrap: wrap
   justify-content: center
 
-  label 
+  label
     display: block
     float: left
     margin-top: -19px
@@ -257,7 +278,7 @@ form
   input,
   input[type='password'],
   textarea,
-  select 
+  select
     box-sizing: border-box
     -webkit-box-sizing: border-box
     -moz-box-sizing: border-box
@@ -285,31 +306,31 @@ form
       margin-bottom: 0px
       text-align: center
 
-      label 
-        display: block
-        float: left
-        margin-top: -19px
-        background: #f3f0eb
-        height: 14px
-        padding: 2px 5px 2px 5px
-        color: #B9B9B9
-        font-size: 14px
-        overflow: hidden
-        font-family: Arial, Helvetica, sans-serif
-      span 
-        background: #F3F3F3
-        display: block
-        padding: 3px
-        margin: 0 -9px -9px -9px
-        text-align: center
-        color: #C0C0C0
-        font-family: Arial, Helvetica, sans-serif
-        font-size: 11px
+    label
+      display: block
+      float: left
+      margin-top: -19px
+      background: #f3f0eb
+      height: 14px
+      padding: 2px 5px 2px 5px
+      color: #B9B9B9
+      font-size: 14px
+      overflow: hidden
+      font-family: Arial, Helvetica, sans-serif
+
+    span
+      background: #F3F3F3
+      display: block
+      padding: 3px
+      margin: 0 -9px -9px -9px
+      text-align: center
+      color: #C0C0C0
+      font-family: Arial, Helvetica, sans-serif
+      font-size: 11px
 
 
 form input[type="submit"],
-button 
-  //background: #2471FF
+button
   @include button-color($niceBlue)
   border: none
   padding: 10px 20px 10px 20px
@@ -317,25 +338,22 @@ button
   border-radius: 3px
   color: #D2E2FF
 
-  &.delete 
+  &.delete
     background: red
     border-bottom: 3px solid #990000
-    &:hover 
+    &:hover
       background: #F1948A
       color:#fff
   &:hover,
-  &:hover 
       background: #6B9FFF
       color:#fff
 
-
-
-ul 
+ul
   list-style-type: none
   margin: 0
   padding: 0
 
-li 
+li
   font: 200 20px/1.5 Helvetica, Verdana, sans-serif
   border-bottom: 1px solid #ccc
   padding: 5px
@@ -349,24 +367,13 @@ li
   -ms-transition: font-size 0.3s ease, background-color 0.3s ease
   transition: font-size 0.3s ease, background-color 0.3s ease
 
-  &:last-child 
+  &:last-child
     border: none
-  &:hover 
-    background: #CBC5BC
 
-.sub 
+.sub
   font-size: 15px
   text-transform: lowercase
-  &:hover 
-  background: #F2B7BB
+  &:hover
 
-.li-header 
+.li-header
   text-transform: capitalize
-
-.vlogo 
-  width: 10em
-  height: 10em
-
-.header-box 
-  text-align: center
-
