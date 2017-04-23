@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { 
+import {
   ADD_RECIPE,
   FETCH_CURRUSERREC,
   REMOVE_RECIPE,
@@ -10,8 +10,8 @@ import {
   FETCH_RECIPE
 } from './types';
 
-//const ROOT_URL = 'https://recipebookbackend.herokuapp.com';
-const ROOT_URL = 'http://localhost:3060';
+const ROOT_URL = 'https://recipebookbackend.herokuapp.com';
+//const ROOT_URL = 'http://localhost:3060';
 
 export const authError = errors => {
   return {
@@ -58,18 +58,18 @@ export const signoutUser = () => {
 
 export const addRecipe = ({ recipeName, ingredients, steps }) => {
   return (dispatch) => {
-    axios.post(`${ROOT_URL}/postrecipe`, { 
+    axios.post(`${ROOT_URL}/postrecipe`, {
       recipeName, ingredients, steps
-    }, { 
-      headers: {'authorization': localStorage.getItem('token')} 
+    }, {
+      headers: {'authorization': localStorage.getItem('token')}
     })
     .then(response => {
-      dispatch({ 
+      dispatch({
         type: ADD_RECIPE,
         payload: response.data
       })
     });
-  } 
+  }
 }
 
 export const getRecipes = () => {
@@ -110,7 +110,7 @@ export const deleteRecipe = (id) => {
       .then(response => {
         dispatch({
           type: REMOVE_RECIPE,
-          payload: response.data 
+          payload: response.data
         })
       })
   }
@@ -120,7 +120,7 @@ export const editRecipe = ({ editName, editIngs, id }, recipeId) => {
   return (dispatch) => {
     axios.put(`${ROOT_URL}/editrecipe?id=${recipeId}`, {
       editName, editIngs
-    }, { 
+    }, {
       headers: {'authorization': localStorage.getItem(`token`)}
     })
       .then(response => {
