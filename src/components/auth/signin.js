@@ -15,10 +15,11 @@ class Signin extends Component {
   }
 
   renderAlert() {
+    console.log(this.props.errorMessage);
     if (this.props.errorMessage) {
       return (
         <div className='alert alert-danger'>
-          <strong>Oops!</strong> {this.props.errorMessage}
+          <strong>Bad Login Info</strong> {this.props.errorMessage}
         </div>
       );
     }
@@ -30,12 +31,14 @@ class Signin extends Component {
     return (
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         <fieldset className='form-group'>
-         <label>Email:</label>
+          <label>Email:</label>
           <input {...email} className='form-control' />
+          {email.touched && email.error && <div className='error'>{email.error}</div>}
         </fieldset>
         <fieldset className='form-group'>
           <label>Password:</label>
           <input {...password} type='password' className='form-control' />
+          {password.touched && password.error && <div className='error'>{password.error}</div>}
         </fieldset>
         {this.renderAlert()}
         {this.renderNewRoute()}
@@ -45,14 +48,29 @@ class Signin extends Component {
   }
 }
 
+function validate(formProps) {
+  const errors = {};
+
+  if (!formProps.email) {
+    errors.email = 'Please enter an email';
+  }
+
+  if (!formProps.password) {
+    errors.password = 'Please enter an password';
+  }
+
+  return errors;
+}
+
 function mapStateToProps(state) {
   return { 
-    errorMessage: state.auth.error,
+    errorMessage: state.auth.errors,
     authenticated: state.auth.authenticated
   }
 }
 
 export default reduxForm({
   form: 'signin',
-  fields: ['email', 'password']
+  fields: ['email', 'password'],
+  validate
 }, mapStateToProps, actions)(Signin);

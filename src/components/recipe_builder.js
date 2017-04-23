@@ -23,13 +23,13 @@ class RecipeBuilder extends Component {
           <input className='form-control' {...ingredients} />
           <span>Enter ingredients seperated by commas</span>
         </fieldset>
-        {/* Under Construction
+        {/* Under Construction*/}
         <fieldset className='form-group'>
           <label>Steps:</label>
-          <input className='form-control' {...steps} />
+          <textarea className='form-control' {...steps} />
           <span>Describe how to create your recipe</span>
         </fieldset>
-        */}
+        
         <button action='submit' className='btn btn-primary'>Add Recipe</button>
       </form>
     )

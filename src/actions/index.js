@@ -10,13 +10,13 @@ import {
   FETCH_RECIPE
 } from './types';
 
-const ROOT_URL = 'https://recipebookbackend.herokuapp.com';
-//const ROOT_URL = 'http://localhost:3060';
+//const ROOT_URL = 'https://recipebookbackend.herokuapp.com';
+const ROOT_URL = 'http://localhost:3060';
 
-export const authError = error => {
+export const authError = errors => {
   return {
     type: AUTH_USER,
-    payload: error
+    payload: errors
   }
 }
 
