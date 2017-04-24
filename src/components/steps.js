@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Steps = (props) => {
-  let pColor = 'red';
   let divStyle = {
     color: 'red',
     fontSize: '12px',

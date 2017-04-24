@@ -66,7 +66,6 @@ class App extends Component {
             <span></span>
           </div>
           <div className='header-box'>
-            <Header />
           </div>
           <div className='app-area'>
             <div className='summary'>
@@ -75,6 +74,9 @@ class App extends Component {
                </p>
             </div>
             <div className='left-content'>
+              <div className='top-container-nav'>
+                  <Header />
+              </div>
               {routes.map((route, i) => (
                 <RouteWithSubRoutes key={i} {...route}/>
               ))}
