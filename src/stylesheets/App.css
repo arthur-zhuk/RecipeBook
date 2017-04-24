@@ -230,6 +230,9 @@ p {
   height: 2em;
   width: 2em; }
 
+.left-content .top-container-nav .selected {
+  color: #2471FF; }
+
 .right-content {
   background-color: #FFF;
   max-height: 400px;

@@ -5,30 +5,37 @@ import logo from "../../large_garden-veggies.png";
 
 class Header extends Component {
 
+  handleNavClick(id) {
+    var root = document.getElementsByClassName('selected');
+    if (root.length > 0) {
+      document.getElementById(root[0].id).classList.remove('selected');
+    }
+    document.getElementById(id).classList.add('selected');
+  }
 
   renderLinks() {
     if (this.props.authenticated) {
       return [
-        <li key='logo' className='recipeLogo'>
-          <NavLink  to='/' key="logo">
-              <img src={logo} className='vlogo' alt='Logo' />
-          </NavLink>
-        </li>,
-        <li key='all'>
-          <NavLink key='all' to='/'>
-            All Recipes
-          </NavLink>
-        </li>,
-        <li key='my'>
-          <NavLink key="my" to='/my_recipes'>
-            My Recipes
-          </NavLink>
-        </li>,
-        <li key='out'>
-          <NavLink key='out' to='/signout'>
-            Sign Out
-          </NavLink>
-        </li>
+        <NavLink to='/' key="logo">
+          <li onClick={() => this.handleNavClick('allRecipesDiv')} key='logo' className='recipeLogo'>
+                <img src={logo} className='vlogo' alt='Logo' />
+          </li>
+        </NavLink>,
+        <NavLink key='all' to='/'>
+          <li onClick={() => this.handleNavClick('allRecipesDiv')} key='all' id='allRecipesDiv'>
+              All Recipes
+          </li>
+        </NavLink>,
+        <NavLink key="my" to='/my_recipes'>
+          <li onClick={() => this.handleNavClick('myRecipesDiv')} key='my' id='myRecipesDiv'>
+              My Recipes
+          </li>
+        </NavLink>,
+        <NavLink key='out' to='/signout'>
+          <li key='out' id='signoutDiv'>
+              Sign Out
+          </li>
+        </NavLink>
       ]
     } else {
       return [
