@@ -23,7 +23,8 @@ p {
   overflow: hidden;
   transform: skewY(-12deg);
   transform-origin: 0;
-  position: absolute; }
+  position: absolute;
+  z-index: -1; }
   .header-div:nth-child(3) {
     width: 25%;
     bottom: 0;
