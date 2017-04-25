@@ -9,53 +9,75 @@ import AllRecipes from './components/all_recipes';
 import RecipeBuilder from './components/recipe_builder';
 import RequireAuth from './components/auth/require_auth';
 import { connect } from 'react-redux';
+//import RecipeBuilderButton from 'recipe_builder_button';
 import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
 
 class App extends Component {
- render () {
-   const routes = [
-     {
-       path: '/',
-       component: AllRecipes
-     },
-     {
-       path: '/my_recipes',
-       component: RequireAuth(MyRecipes)
-     },
-     {
-       path: '/signout',
-       component: Signout
-     }
-   ]
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: false};
+    this.onShowRecipe = this.onShowRecipe.bind(this);
+  }
 
-   const RouteWithSubRoutes = route => (
-     <Route exact path={route.path} render={props => (
-       <route.component {...props} routes={route.routes}/>
-     )}/>
-   )
+  onShowRecipe = () => {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+  }
 
-   const signInMessage = () => {
-     return (
-       <div>
-         <p className='snip1211'>
-           Sign in to add recipes!
-         </p>
-       </div>
-     )
-   }
+  render () {
+    const routes = [
+      {
+        path: '/',
+        component: AllRecipes
+      },
+      {
+        path: '/my_recipes',
+        component: RequireAuth(MyRecipes)
+      },
+      {
+        path: '/signin',
+        component: Signin
+      },
+      {
+        path: '/signup',
+        component: Signup
+      },
+      {
+        path: '/signout',
+        component: Signout
+      }
+    ]
 
-   const renderBuilder = () => {
-     if (!this.props.authenticated) {
-       return signInMessage;
-     } else {
-       return RequireAuth(RecipeBuilder);
-     }
-   }
+    const RouteWithSubRoutes = route => (
+      <Route exact path={route.path} render={props => (
+        <route.component {...props} routes={route.routes}/>
+      )}/>
+    )
 
-   return (
+
+    const signInMessage = () => {
+      return (
+        <div>
+          <p className='snip1211'>
+            Sign in to add recipes!
+          </p>
+        </div>
+      )
+    }
+
+    const renderBuilder = () => {
+      if (!this.props.authenticated) {
+        return signInMessage;
+      } else {
+        return RequireAuth(RecipeBuilder);
+      }
+    }
+
+    return (
       <Router>
         <div className='container'>
           <div className='header-div'>
@@ -70,22 +92,23 @@ class App extends Component {
           <div className='app-area'>
             <div className='summary'>
               <p>
-                 Welcome to the Recipe Book where you can share all your favorite recipes!
-               </p>
+                Welcome to the Recipe Book where you can share all your favorite recipes!
+              </p>
             </div>
             <div className='left-content'>
+              {this.state.isToggleOn ? <div className='right-content'><Route path='/' component={renderBuilder()} /></div> : undefined}
               <div className='top-container-nav'>
-                  <Header />
+                <Header /> 
+                <button
+                  className='show-button' 
+                  onClick={() => this.onShowRecipe()}
+                >
+                  {this.state.isToggleOn ? `-` : `+`}
+                </button>
               </div>
               {routes.map((route, i) => (
                 <RouteWithSubRoutes key={i} {...route}/>
               ))}
-            </div>
-            <div className='right-content'>
-              {RequireAuth(<RecipeBuilder />)}
-              <Route path='/' component={renderBuilder()} />
-              <Route path='/signup' component={Signup} />
-              <Route path='/signin' component={Signin} />
             </div>
           </div>
         </div>

@@ -21,6 +21,7 @@ export const authError = errors => {
 }
 
 export const signinUser = ({ email, password }) => {
+  email = email.toLowerCase();
   return function(dispatch) {
     axios.post(`${ROOT_URL}/signin`, { email, password })
       .then(response => {

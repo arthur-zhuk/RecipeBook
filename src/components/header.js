@@ -6,7 +6,7 @@ import logo from "../../large_garden-veggies.png";
 class Header extends Component {
 
   handleNavClick(id) {
-    var root = document.getElementsByClassName('selected');
+    let root = document.getElementsByClassName('selected');
     if (root.length > 0) {
       document.getElementById(root[0].id).classList.remove('selected');
     }
@@ -57,9 +57,6 @@ class Header extends Component {
   }
 
   render() {
-    const selectedStyle = {
-      background: 'yellow'
-    }
     return (
         <nav>
           <ul>
