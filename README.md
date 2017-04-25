@@ -9,10 +9,13 @@ Signup
 
 ![alt text](https://media.giphy.com/media/3oKIPmwy5zzW7dvV8Q/giphy.gif "Recipe Book") 
 Add Recipes
+
 ![alt text](https://media.giphy.com/media/3ohzdMbS71rMdN2n7i/giphy.gif "Recipe Book") 
 Edit Recipes
+
 ![alt text](https://media.giphy.com/media/3og0IAIsFItRbkeqL6/giphy.gif "Recipe Book") 
 Delete them!
+
 ![alt text](https://media.giphy.com/media/3og0IEVmxoaw6MT2Le/giphy.gif "Recipe Book")
 
 Check out the app here: 
