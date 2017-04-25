@@ -21,7 +21,7 @@ class AllRecipes extends Component {
 
         return (
           <li key={recipe._id}>
-            <div className='li-header'>{recipe.recipeName}</div> by {recipe.author}
+            <div className='li-header'>{recipe.recipeName}</div><div className='author-area'> by {recipe.author}</div>
             <ul>
               {allIngs}
             </ul>
