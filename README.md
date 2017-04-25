@@ -5,7 +5,7 @@
 Store your precious recipes on Recipe Book, see other people's creations, manage
 your recipes.
 
-![alt text](http://www.giphy.com/gifs/3oKIPmwy5zzW7dvV8Q "Recipe Book")
+![alt text](https://media.giphy.com/media/3oKIPmwy5zzW7dvV8Q/giphy.gif "Recipe Book")
 
 Check out the app here: 
 [https://recipebookfs.herokuapp.com/](https://recipebookfs.herokuapp.com/)
