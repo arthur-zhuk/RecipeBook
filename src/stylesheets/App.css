@@ -181,6 +181,15 @@ p {
   background: #FFF;
   z-index: 3; }
 
+.left-content button.edit, .left-content button.edit-recipe-btn {
+  background: #3ecf8e;
+  border-bottom: 3px solid #278e60;
+  color: #fff;
+  margin-left: 5px; }
+
+.left-content button.edit:hover, .left-content button.edit-recipe-btn:hover {
+  background: #2da56f; }
+
 .left-content .steps-container p {
   margin-top: 0; }
 
@@ -198,8 +207,6 @@ p {
   padding-bottom: 5px; }
 
 .left-content .top-container-nav button {
-  background: darkgray;
-  border-bottom: 3px solid gray;
   max-width: 4em;
   max-height: 4em;
   text-align: center;
@@ -393,4 +400,8 @@ li:last-child {
   text-transform: lowercase; }
 
 .li-header {
-  text-transform: capitalize; }
+  text-transform: capitalize;
+  font-weight: 400; }
+
+.author-area {
+  font-size: 15px; }

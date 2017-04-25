@@ -13,12 +13,6 @@ class MyRecipes extends Component {
     this.openEditPanel = this.openEditPanel.bind(this);
   }
 
-  /*
-  componentWillMount() {
-    this.props.getRecipes();
-  }
-  */
-
   handleDeleteItem = id => {
     this.props.deleteRecipe(id);
   }
@@ -49,7 +43,7 @@ class MyRecipes extends Component {
 
         return (
           <li key={parentInd}>
-            <div className='li-header'>{recipe.recipeName}</div> by {recipe.author}
+            <div className='li-header'>{recipe.recipeName}</div><div className='author-area'> by {recipe.author}</div>
             <ul>
               {allIngs}
             </ul>

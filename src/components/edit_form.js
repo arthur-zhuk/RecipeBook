@@ -12,7 +12,6 @@ class EditForm extends Component {
   handleFormSubmit(formProps) {
     this.props.editRecipe(formProps, this.props.id);
     console.log(`sending form with id:${this.props.id}`)
-    // TODO: clear form here
     this.props.resetForm('editrecipe');
   }
 
@@ -22,7 +21,7 @@ class EditForm extends Component {
     return (
       <form onSubmit={handleSubmit(this.handleFormSubmit)}>
         <fieldset className='form-group'>
-          <label>Recipe: {this.props.id}</label>
+          <label>Recipe:</label>
           <input className='form-control' {...editName} />
           <span>Enter the name of the recipe</span>
         </fieldset>
@@ -31,14 +30,7 @@ class EditForm extends Component {
           <input className='form-control' {...editIngs} />
           <span>Enter ingredients seperated by commas</span>
         </fieldset>
-        <button action='submit' className='btn btn-primary'>Edit Recipe</button>
-        {/*
-      <form onSubmit={this.handleSubmit}>
-        <input type='text' value={this.props.name} onChange={handleNameChange} />
-        <input type='text' value={this.props.ings} onChange={handleIngChange}/>
-        Edit Form {this.props.name}
-      </form>
-        */}
+        <button action='submit' className='edit-recipe-btn'>Edit Recipe</button>
       </form>
     )
   }

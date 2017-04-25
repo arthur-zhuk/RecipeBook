@@ -186,6 +186,15 @@ p
   border-radius: 6px
   background: #FFF
   z-index: 3
+  button
+    &.edit,
+    &.edit-recipe-btn
+      @include button-color(#3ecf8e)
+      border-bottom: 3px solid #278e60
+      color: #fff
+      margin-left: 5px
+      &:hover
+        @include button-color(#2da56f)
 
   .steps-container
     p
@@ -202,10 +211,7 @@ p
     justify-content: space-around
     border-bottom: 1px solid #ccc
     padding-bottom: 5px
-
     button
-      @include button-color(darkgray)
-      border-bottom: 3px solid gray
       max-width: 4em
       max-height: 4em
       text-align: center
@@ -430,3 +436,6 @@ li
 
 .li-header
   text-transform: capitalize
+  font-weight: 400
+.author-area
+  font-size: 15px
