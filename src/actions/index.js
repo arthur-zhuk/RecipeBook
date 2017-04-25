@@ -10,8 +10,8 @@ import {
   FETCH_RECIPE
 } from './types';
 
-const ROOT_URL = 'https://recipebookbackend.herokuapp.com';
-//const ROOT_URL = 'http://localhost:3060';
+//const ROOT_URL = 'https://recipebookbackend.herokuapp.com';
+const ROOT_URL = 'http://localhost:3060';
 
 export const authError = errors => {
   return {
@@ -117,10 +117,10 @@ export const deleteRecipe = (id) => {
   }
 }
 
-export const editRecipe = ({ editName, editIngs, id }, recipeId) => {
+export const editRecipe = ({ editName, editIngs, editSteps }, recipeId) => {
   return (dispatch) => {
     axios.put(`${ROOT_URL}/editrecipe?id=${recipeId}`, {
-      editName, editIngs
+      editName, editIngs, editSteps
     }, {
       headers: {'authorization': localStorage.getItem(`token`)}
     })

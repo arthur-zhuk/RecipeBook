@@ -48,7 +48,7 @@ class MyRecipes extends Component {
               {allIngs}
             </ul>
             <Steps recipe={recipe} />
-            {(recipe._id === this.state.idClicked) && this.state.isToggleOn ? <EditForm name={recipe.recipeName} author={recipe.author} ings={recipe.ingredients} id={recipe._id} /> : undefined}
+            {(recipe._id === this.state.idClicked) && this.state.isToggleOn ? <EditForm name={recipe.recipeName} author={recipe.author} ings={recipe.ingredients} steps={recipe.steps} id={recipe._id} /> : undefined}
             <button className='delete' onClick={() => this.handleDeleteItem(recipe._id)}>Delete</button>
             <button
               className='edit'

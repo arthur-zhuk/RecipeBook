@@ -30,7 +30,8 @@ export default (state = {}, action) => {
           __v: action.payload.__v, 
           date: action.payload.date, 
           recipeName: action.payload.recipeName, 
-          ingredients: action.payload.ingredients
+          ingredients: action.payload.ingredients,
+          steps: action.payload.steps
         }])
       }
     case SIGNOUT_USER:
