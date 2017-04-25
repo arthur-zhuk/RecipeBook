@@ -6,6 +6,7 @@ Store your precious recipes on Recipe Book, see other people's creations, manage
 your recipes.
 
 Signup
+
 ![alt text](https://media.giphy.com/media/3oKIPmwy5zzW7dvV8Q/giphy.gif "Recipe Book") 
 Add Recipes
 ![alt text](https://media.giphy.com/media/3ohzdMbS71rMdN2n7i/giphy.gif "Recipe Book") 
